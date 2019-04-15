@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a9b504eaa25b496dbd6756b4a0a7dfcc" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="MalariaDBModel.Caus" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalariaDBModel.Desease" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalariaDBModel.Loc_Des" Width="1.5" PointX="6" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalariaDBModel.Location" Width="1.5" PointX="3.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalariaDBModel.Medical_Proffesionals" Width="1.5" PointX="5.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalariaDBModel.Notification" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalariaDBModel.Prevention" Width="1.5" PointX="3" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalariaDBModel.Risk_Period" Width="1.5" PointX="3.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalariaDBModel.RP_Des" Width="1.5" PointX="6" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalariaDBModel.Symp_Des" Width="1.5" PointX="6" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalariaDBModel.Symptom" Width="1.5" PointX="3.75" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MalariaDBModel.Treatment" Width="1.5" PointX="3" PointY="19.125" IsExpanded="true" />
+        <AssociationConnector Association="MalariaDBModel.FK__Causes__Des_ID__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="MalariaDBModel.FK__Loc_Des__Des_ID__25869641" ManuallyRouted="false" />
+        <AssociationConnector Association="MalariaDBModel.FK__Preventio__Des_I__145C0A3F" ManuallyRouted="false" />
+        <AssociationConnector Association="MalariaDBModel.FK__RP_Des__Des_ID__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="MalariaDBModel.FK__Symp_Des__Des_ID__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="MalariaDBModel.FK__Treatment__Des_I__173876EA" ManuallyRouted="false" />
+        <AssociationConnector Association="MalariaDBModel.FK__Loc_Des__Loc_ID__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="MalariaDBModel.FK__Notificat__MP_ID__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="MalariaDBModel.FK__RP_Des__RiskP_ID__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="MalariaDBModel.FK__Symp_Des__Symp_I__2A4B4B5E" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

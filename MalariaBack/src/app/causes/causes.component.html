@@ -1,0 +1,38 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Description</th>
+    <th>Desease ID</th>
+    <th>Remove</th>
+    <th>Edit</th>
+  </tr>
+  <tr *ngFor="let Cause of causes">
+    <td>{{Cause.Cause_ID}}</td>
+    <td>{{Cause.Cause_Desc}}</td>
+    <td>{{Cause.Des_ID}}</td>
+    <td><button (click)="removeCause(Cause.Cause_ID)"  class="cta">Remove</button></td>
+    <td><button (click)="edit(Cause.Cause_ID,Cause.Cause_Desc,Cause.Des_ID)"  class="cta">Edit</button></td>
+  </tr>
+</table>
+<button (click)="addCause()"  class="cta">click to add</button>
+
+
+
+<div *ngIf="editistrue">
+  <form [formGroup]="EditForm" (ngSubmit)="updateCause()">
+    <label>
+      Cause ID:
+      <input type="text" formControlName="Cause_I">
+    </label>
+    <label>
+      Cause Description:
+      <input type="text" formControlName="Cause_de">
+    </label>
+    <label>
+      Disease ID:
+      <input type="text" formControlName="Dis_ID">
+    </label>
+
+    <input type="submit" value="Add Item" class="cta" >
+  </form>
+</div>
