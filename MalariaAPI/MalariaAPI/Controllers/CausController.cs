@@ -10,6 +10,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using System.Web.Http.Cors;
 using MalariaAPI.Models;
+using System.Dynamic;
 
 namespace MalariaAPI.Controllers
 {
@@ -19,10 +20,25 @@ namespace MalariaAPI.Controllers
         private MalariaDBEntities1 db = new MalariaDBEntities1();
 
         // GET: api/Caus
-        public IQueryable<Caus> GetCauses()
+        public List<dynamic> GetCauses()
         {
+            
             db.Configuration.ProxyCreationEnabled = false;
-            return db.Causes;
+            List<Caus> cause1 = db.Causes.Include(zz => zz.Desease).ToList();
+            List<dynamic> toReturn = new List<dynamic>();
+            foreach (Caus c in cause1)
+            {
+                dynamic m = new ExpandoObject();
+                m.Cause_ID = c.Cause_ID;
+                m.Cause_Desc = c.Cause_Desc;
+                m.Des_ID = c.Des_ID;
+                if (c.Desease != null)
+                {
+                    m.Des_Name = c.Desease.Des_Name;
+                }
+                toReturn.Add(m);
+            }
+            return toReturn;
         }
 
         // GET: api/Caus/5

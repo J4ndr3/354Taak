@@ -1,3 +1,61 @@
-<p>
-  disease works!
-</p>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Desease Name</th>
+    <th>Desease Description</th>
+    <th>Remove</th>
+    <th>Edit</th>
+  </tr>
+  <tr *ngFor="let Dis of Disease">
+    <td>{{Dis.Des_ID}}</td>
+    <td>{{Dis.Des_Name}}</td>
+    <td>{{Dis.Des_Desc}}</td>
+    <td><button (click)="removeDisease(Dis.Des_ID)"  class="cta">Remove</button></td>
+    <td><button (click)="edit(Dis.Des_ID,Dis.Des_Name,Dis.Des_Desc)"  class="cta">Edit</button></td>
+  </tr>
+</table>
+<button (click)="addDisease1()" *ngIf="addAct" class="cta">Click to add new cause</button>
+
+
+
+<div *ngIf="editistrue">
+  <form [formGroup]="EditForm" (ngSubmit)="updateDisease()">
+    <label>
+      Disease ID:
+      <input type="text" formControlName="Des_ID">
+    </label>
+    <label>
+      Disease Name:
+      <input type="text" formControlName="Des_Name">
+    </label>
+    <label>
+        Disease Description:
+        <input type="text" formControlName="Des_Desc">
+      </label>
+  <br>
+  <br>
+    <input type="submit" value="Update Item" class="cta" >
+    <br>
+    <br>
+    <input type="button" (click)="cancelUC()"value="Cancel" class="cta">
+  </form>
+</div>
+
+<div *ngIf="addistrue">
+  <form [formGroup]="AddForm" (ngSubmit)="addDisease()">
+    <label>
+        Disease Name:
+      <input type="text" formControlName="Des_Name">
+    </label>
+    <label>
+        Disease Description:
+      <input type="text" formControlName="Des_Desc">
+    </label>
+  <br>
+  <br>
+    <input type="submit" value="Add Item" class="cta" >
+    <br>
+    <br>
+    <input type="button" (click)="cancelAC()"value="Cancel" class="cta">
+  </form>
+</div>

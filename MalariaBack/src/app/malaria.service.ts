@@ -19,4 +19,16 @@ export class MalariaService {
   PutCaus(id, Caus){
     return this.http.put('http://localhost:7836/api/Caus/'+id,Caus)
   }
+  GetDisease() {
+    return this.http.get('http://localhost:7836/api/Deseases')
+  }
+  PostDisease(Disease){
+    return this.http.post('http://localhost:7836/api/Deseases',Disease)
+  }
+  DeleteDisease(id){
+    return this.http.delete('http://localhost:7836/api/Deseases/'+id)
+  }
+  PutDisease(id, Disease){
+    return this.http.put('http://localhost:7836/api/Deseases/'+id,Disease)
+  }
 }

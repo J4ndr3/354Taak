@@ -9,23 +9,38 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using MalariaAPI.Models;
+using System.Web.Http.Cors;
+using System.Dynamic;
 
 namespace MalariaAPI.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class DeseasesController : ApiController
     {
         private MalariaDBEntities1 db = new MalariaDBEntities1();
 
         // GET: api/Deseases
-        public IQueryable<Desease> GetDeseases()
+        public List<dynamic> GetDeseases()
         {
-            return db.Deseases;
+            db.Configuration.ProxyCreationEnabled = false;
+            List<Desease> des1 = db.Deseases.ToList();
+            List<dynamic> toReturn = new List<dynamic>();
+            foreach (Desease c in des1)
+            {
+                dynamic m = new ExpandoObject();
+                m.Des_ID = c.Des_ID;
+                m.Des_Name = c.Des_Name;
+                m.Des_Desc = c.Des_Desc;
+                toReturn.Add(m);
+            }
+            return toReturn;
         }
 
         // GET: api/Deseases/5
         [ResponseType(typeof(Desease))]
         public IHttpActionResult GetDesease(int id)
         {
+            db.Configuration.ProxyCreationEnabled = false;
             Desease desease = db.Deseases.Find(id);
             if (desease == null)
             {
@@ -39,6 +54,7 @@ namespace MalariaAPI.Controllers
         [ResponseType(typeof(void))]
         public IHttpActionResult PutDesease(int id, Desease desease)
         {
+            db.Configuration.ProxyCreationEnabled = false;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -74,6 +90,7 @@ namespace MalariaAPI.Controllers
         [ResponseType(typeof(Desease))]
         public IHttpActionResult PostDesease(Desease desease)
         {
+            db.Configuration.ProxyCreationEnabled = false;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -89,6 +106,7 @@ namespace MalariaAPI.Controllers
         [ResponseType(typeof(Desease))]
         public IHttpActionResult DeleteDesease(int id)
         {
+            db.Configuration.ProxyCreationEnabled = false;
             Desease desease = db.Deseases.Find(id);
             if (desease == null)
             {

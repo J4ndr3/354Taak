@@ -2,19 +2,19 @@
   <tr>
     <th>ID</th>
     <th>Description</th>
-    <th>Desease ID</th>
+    <th>Desease Name</th>
     <th>Remove</th>
     <th>Edit</th>
   </tr>
   <tr *ngFor="let Cause of causes">
     <td>{{Cause.Cause_ID}}</td>
     <td>{{Cause.Cause_Desc}}</td>
-    <td>{{Cause.Des_ID}}</td>
+    <td>{{Cause.Des_Name}}</td>
     <td><button (click)="removeCause(Cause.Cause_ID)"  class="cta">Remove</button></td>
     <td><button (click)="edit(Cause.Cause_ID,Cause.Cause_Desc,Cause.Des_ID)"  class="cta">Edit</button></td>
   </tr>
 </table>
-<button (click)="addCause()"  class="cta">click to add</button>
+<button (click)="addCause1()" *ngIf="addAct" class="cta">Click to add new cause</button>
 
 
 
@@ -29,10 +29,39 @@
       <input type="text" formControlName="Cause_de">
     </label>
     <label>
-      Disease ID:
-      <input type="text" formControlName="Dis_ID">
+      Disease Name:
     </label>
+    <select formControlName="Dis_Name" [(value)]="Selection">
+      <option value="" disabled>Choose the Disease</option>
+      <option *ngFor="let opt of options" [(value)]="opt.Des_ID">{{opt.Des_Name}}</option>
+   </select>
+  <br>
+  <br>
+    <input type="submit" value="Update Item" class="cta" >
+    <br>
+    <br>
+    <input type="button" (click)="cancelUC()"value="Cancel" class="cta">
+  </form>
+</div>
 
+<div *ngIf="addistrue">
+  <form [formGroup]="AddForm" (ngSubmit)="addCause()">
+    <label>
+      Cause Description:
+      <input type="text" formControlName="Cause_de">
+    </label>
+    <label>
+      Disease Name:
+    </label>
+    <select formControlName="Dis_Name" [(value)]="Selection">
+      <option value="" disabled>Choose the Disease</option>
+      <option *ngFor="let opt of options" [(value)]="opt.Des_ID">{{opt.Des_Name}}</option>
+   </select>
+  <br>
+  <br>
     <input type="submit" value="Add Item" class="cta" >
+    <br>
+    <br>
+    <input type="button" (click)="cancelAC()"value="Cancel" class="cta">
   </form>
 </div>
