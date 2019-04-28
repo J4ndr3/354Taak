@@ -29,7 +29,6 @@ namespace MalariaAPI2.Controllers
             {
                 dynamic m = new ExpandoObject();
                 m.Loc_ID = c.Loc_ID;
-                m.Loc_Des = c.Loc_Des;
                 m.Loc_Name = c.Loc_Name;
                 m.Loc_Severity = c.Loc_Severity;
             }
