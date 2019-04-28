@@ -249,7 +249,10 @@
     <Compile Include="Controllers\DeseasesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
+    <Compile Include="Controllers\Medical_ProffesionalsController.cs" />
     <Compile Include="Controllers\PreventionsController.cs" />
+    <Compile Include="Controllers\Risk_PeriodController.cs" />
+    <Compile Include="Controllers\SymptomsController.cs" />
     <Compile Include="Controllers\TreatmentsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
