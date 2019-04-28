@@ -78,7 +78,7 @@ edit(PID,PD,PT,DID){
     Prev_ID: [PID],
     Prev_Desc: [PD],
     Prev_Type:[PT],
-    Des_ID: [DID]
+    Dis_Name: [DID]
   });
   this.editistrue =true;
 }
