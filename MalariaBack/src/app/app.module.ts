@@ -10,6 +10,7 @@ import { DiseaseComponent } from './disease/disease.component';
 import { CausesComponent } from './causes/causes.component';
 import { NavComponent } from './nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PreventionComponent } from './prevention/prevention.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     DiseaseComponent,
     CausesComponent,
-    NavComponent
+    NavComponent,
+    PreventionComponent
   ],
   imports: [
     BrowserModule,
