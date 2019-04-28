@@ -11,6 +11,7 @@ import { CausesComponent } from './causes/causes.component';
 import { NavComponent } from './nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PreventionComponent } from './prevention/prevention.component';
+import { TreatmentComponent } from './treatment/treatment.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PreventionComponent } from './prevention/prevention.component';
     DiseaseComponent,
     CausesComponent,
     NavComponent,
-    PreventionComponent
+    PreventionComponent,
+    TreatmentComponent
   ],
   imports: [
     BrowserModule,
