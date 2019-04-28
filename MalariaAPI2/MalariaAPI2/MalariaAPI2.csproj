@@ -248,7 +248,9 @@
     <Compile Include="Controllers\CausController.cs" />
     <Compile Include="Controllers\DeseasesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\PreventionsController.cs" />
+    <Compile Include="Controllers\TreatmentsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
