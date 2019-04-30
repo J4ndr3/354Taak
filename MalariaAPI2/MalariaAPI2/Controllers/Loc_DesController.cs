@@ -9,52 +9,52 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using MalariaAPI2.Models;
-using System.Dynamic;
 using System.Web.Http.Cors;
-
+using System.Dynamic;
 namespace MalariaAPI2.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class PreventionsController : ApiController
+    public class Loc_DesController : ApiController
     {
+        
         private Malaria_DBEntities db = new Malaria_DBEntities();
 
-        // GET: api/Preventions
-        public List<dynamic> GetPreventions()
+        // GET: api/Loc_Des
+        public List<dynamic> GetLoc_Des()
         {
             db.Configuration.ProxyCreationEnabled = false;
-            List<Prevention> prev1 = db.Preventions.Include(zz => zz.Desease).ToList();
+            List<Loc_Des> LD1 = db.Loc_Des.Include(aa=> aa.Location).Include(zz => zz.Desease).ToList();
             List<dynamic> toReturn = new List<dynamic>();
-            foreach (Prevention c in prev1)
+            foreach (Loc_Des c in LD1)
             {
                 dynamic m = new ExpandoObject();
-                m.Prev_ID = c.Prev_ID;
-                m.Prev_Desc = c.Prev_Desc;
-                m.Prev_Type = c.Prev_Type;
+                m.Loc_Des_ID = c.Loc_Des_ID;
                 m.Des_ID = c.Des_ID;
+                m.Loc_ID = c.Loc_ID;
                 m.Des_Name = c.Desease.Des_Name;
+                m.Loc_Name = c.Location.Loc_Name;
                 toReturn.Add(m);
             }
             return toReturn;
         }
 
-        // GET: api/Preventions/5
-        [ResponseType(typeof(Prevention))]
-        public IHttpActionResult GetPrevention(int id)
+        // GET: api/Loc_Des/5
+        [ResponseType(typeof(Loc_Des))]
+        public IHttpActionResult GetLoc_Des(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            Prevention prevention = db.Preventions.Find(id);
-            if (prevention == null)
+            Loc_Des loc_Des = db.Loc_Des.Find(id);
+            if (loc_Des == null)
             {
                 return NotFound();
             }
 
-            return Ok(prevention);
+            return Ok(loc_Des);
         }
 
-        // PUT: api/Preventions/5
+        // PUT: api/Loc_Des/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutPrevention(int id, Prevention prevention)
+        public IHttpActionResult PutLoc_Des(int id, Loc_Des loc_Des)
         {
             db.Configuration.ProxyCreationEnabled = false;
             if (!ModelState.IsValid)
@@ -62,12 +62,12 @@ namespace MalariaAPI2.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != prevention.Prev_ID)
+            if (id != loc_Des.Loc_Des_ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(prevention).State = EntityState.Modified;
+            db.Entry(loc_Des).State = EntityState.Modified;
 
             try
             {
@@ -75,7 +75,7 @@ namespace MalariaAPI2.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PreventionExists(id))
+                if (!Loc_DesExists(id))
                 {
                     return NotFound();
                 }
@@ -88,37 +88,37 @@ namespace MalariaAPI2.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Preventions
-        [ResponseType(typeof(Prevention))]
-        public IHttpActionResult PostPrevention(Prevention prevention)
+        // POST: api/Loc_Des
+        [ResponseType(typeof(Loc_Des))]
+        public IHttpActionResult PostLoc_Des(Loc_Des loc_Des)
         {
-            db.Configuration.ProxyCreationEnabled = false;
+            //db.Configuration.ProxyCreationEnabled = false;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.Preventions.Add(prevention);
+            db.Loc_Des.Add(loc_Des);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = prevention.Prev_ID }, prevention);
+            return CreatedAtRoute("DefaultApi", new { id = loc_Des.Loc_Des_ID }, loc_Des);
         }
 
-        // DELETE: api/Preventions/5
-        [ResponseType(typeof(Prevention))]
-        public IHttpActionResult DeletePrevention(int id)
+        // DELETE: api/Loc_Des/5
+        [ResponseType(typeof(Loc_Des))]
+        public IHttpActionResult DeleteLoc_Des(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            Prevention prevention = db.Preventions.Find(id);
-            if (prevention == null)
+            Loc_Des loc_Des = db.Loc_Des.Find(id);
+            if (loc_Des == null)
             {
                 return NotFound();
             }
 
-            db.Preventions.Remove(prevention);
+            db.Loc_Des.Remove(loc_Des);
             db.SaveChanges();
 
-            return Ok(prevention);
+            return Ok(loc_Des);
         }
 
         protected override void Dispose(bool disposing)
@@ -130,9 +130,9 @@ namespace MalariaAPI2.Controllers
             base.Dispose(disposing);
         }
 
-        private bool PreventionExists(int id)
+        private bool Loc_DesExists(int id)
         {
-            return db.Preventions.Count(e => e.Prev_ID == id) > 0;
+            return db.Loc_Des.Count(e => e.Loc_Des_ID == id) > 0;
         }
     }
 }

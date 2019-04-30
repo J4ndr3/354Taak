@@ -1,0 +1,78 @@
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Description</th>
+    <th>Type</th>
+    <th>Desease Name</th>
+    <th>Remove</th>
+    <th>Edit</th>
+  </tr>
+  <tr *ngFor="let treat of treatments">
+    <td>{{treat.Treat_ID}}</td>
+    <td>{{treat.Treat_Desc}}</td>
+    <td>{{treat.Treat_Type}}</td>
+    <td>{{treat.Des_Name}}</td>
+    <td><button (click)="removeCause(treat.Treat_ID)"  class="cta">Remove</button></td>
+    <td><button (click)="edit(treat.Treat_ID,treat.Treat_Desc,treat.Treat_Type,treat.Des_ID)"  class="cta">Edit</button></td>
+  </tr>
+</table>
+<button (click)="addTreat1()" *ngIf="addAct" class="cta">Click to add new Treatment</button>
+
+
+
+<div *ngIf="editistrue">
+  <form [formGroup]="EditForm" (ngSubmit)="updateTreatment()">
+    <label>
+      Treatment ID:
+      <input type="text" formControlName="Treat_ID">
+    </label>
+    <label>
+      Treatment Description:
+      <input type="text" formControlName="Treat_Desc">
+    </label>
+    <label>
+      Treatment Type:
+      <input type="text" formControlName="Treat_Type">
+    </label>
+    <label>
+      Disease Name:
+    </label>
+    <select formControlName="Dis_Name" [(value)]="Selection">
+      <option value="" disabled>Choose the Disease</option>
+      <option *ngFor="let opt of options" [(value)]="opt.Des_ID">{{opt.Des_Name}}</option>
+   </select>
+  <br>
+  <br>
+    <input type="submit" value="Update Item" class="cta" >
+    <br>
+    <br>
+    <input type="button" (click)="cancelUC()"value="Cancel" class="cta">
+  </form>
+</div>
+
+<div *ngIf="addistrue">
+  <form [formGroup]="AddForm" (ngSubmit)="addTreatment()">
+    <label>
+      Treatment Description:
+      <input type="text" formControlName="Treat_Desc">
+    </label>
+    <label>
+      Treatment Type:
+      <input type="text" formControlName="Treat_Type">
+    </label>
+    <label>
+      Disease Name:
+    </label>
+    <select formControlName="Dis_Name" [(value)]="Selection">
+      <option value="" disabled>Choose the Disease</option>
+      <option *ngFor="let opt of options" [(value)]="opt.Des_ID">{{opt.Des_Name}}</option>
+   </select>
+  <br>
+  <br>
+    <input type="submit" value="Add Item" class="cta" >
+    <br>
+    <br>
+    <input type="button" (click)="cancelAC()"value="Cancel" class="cta">
+  </form>
+</div>
+

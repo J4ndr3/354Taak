@@ -12,6 +12,7 @@ import { NavComponent } from './nav/nav.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PreventionComponent } from './prevention/prevention.component';
 import { SymptomComponent } from './symptom/symptom.component';
+import { TreatmentComponent } from './treatment/treatment.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SymptomComponent } from './symptom/symptom.component';
     CausesComponent,
     NavComponent,
     PreventionComponent,
-    SymptomComponent
+    SymptomComponent,
+    TreatmentComponent
   ],
   imports: [
     BrowserModule,

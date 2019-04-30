@@ -68,5 +68,17 @@ GetSymptoms() {
     return this.http.put('http://localhost:30264/api/Symptoms/'+id,symp)
   }
 
+  GetTreatment() {
+    return this.http.get('http://localhost:30264/api/Treatments')
+  }
+  PostTreatment(Treatment){
+    return this.http.post('http://localhost:30264/api/Treatments',Treatment)
+  }
+  DeleteTreatment(id){
+    return this.http.delete('http://localhost:30264/api/Treatments/'+id)
+  }
+  PutTreatment(id, Treatment){
+    return this.http.put('http://localhost:30264/api/Treatments/'+id,Treatment)
+  }
 
 }

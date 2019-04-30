@@ -16,8 +16,6 @@
     <Property Name="Des_Desc" Type="text" Nullable="false" />
     <Property Name="Des_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'Malaria_DB.dbo.Loc_Des' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Loc_Des">
     <Key>
       <PropertyRef Name="Loc_Des_ID" />
@@ -70,8 +68,6 @@ warning 6002: The table/view 'Malaria_DB.dbo.Loc_Des' does not have a primary ke
     <Property Name="RiskP_Desc" Type="text" Nullable="false" />
     <Property Name="RiskP_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'Malaria_DB.dbo.RP_Des' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="RP_Des">
     <Key>
       <PropertyRef Name="RP_Des_ID" />
@@ -80,8 +76,6 @@ warning 6002: The table/view 'Malaria_DB.dbo.RP_Des' does not have a primary key
     <Property Name="RiskP_ID" Type="int" />
     <Property Name="RP_Des_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'Malaria_DB.dbo.Symp_Des' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Symp_Des">
     <Key>
       <PropertyRef Name="Symp_Des_ID" />
@@ -231,34 +225,16 @@ warning 6002: The table/view 'Malaria_DB.dbo.Symp_Des' does not have a primary k
   <EntityContainer Name="Malaria_DBModelStoreContainer">
     <EntitySet Name="Causes" EntityType="Self.Causes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Desease" EntityType="Self.Desease" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Loc_Des" EntityType="Self.Loc_Des" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Medical_Proffesionals" EntityType="Self.Medical_Proffesionals" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Prevention" EntityType="Self.Prevention" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Risk_Period" EntityType="Self.Risk_Period" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RP_Des" EntityType="Self.RP_Des" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Symp_Des" EntityType="Self.Symp_Des" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Symptoms" EntityType="Self.Symptoms" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Treatment" EntityType="Self.Treatment" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Loc_Des" EntityType="Self.Loc_Des" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Loc_Des].[Des_ID] AS [Des_ID], 
-    [Loc_Des].[Loc_ID] AS [Loc_ID], 
-    [Loc_Des].[Loc_Des_ID] AS [Loc_Des_ID]
-    FROM [dbo].[Loc_Des] AS [Loc_Des]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="RP_Des" EntityType="Self.RP_Des" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [RP_Des].[Des_ID] AS [Des_ID], 
-    [RP_Des].[RiskP_ID] AS [RiskP_ID], 
-    [RP_Des].[RP_Des_ID] AS [RP_Des_ID]
-    FROM [dbo].[RP_Des] AS [RP_Des]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Symp_Des" EntityType="Self.Symp_Des" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Symp_Des].[Des_ID] AS [Des_ID], 
-    [Symp_Des].[Symp_ID] AS [Symp_ID], 
-    [Symp_Des].[Symp_Des_ID] AS [Symp_Des_ID]
-    FROM [dbo].[Symp_Des] AS [Symp_Des]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK__Causes__Des_ID__1A14E395" Association="Self.FK__Causes__Des_ID__1A14E395">
       <End Role="Desease" EntitySet="Desease" />
       <End Role="Causes" EntitySet="Causes" />

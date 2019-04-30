@@ -1,24 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { MalariaService } from '../malaria.service';
 import { FormBuilder,FormGroup } from '@angular/forms';
-
 @Component({
-  selector: 'app-prevention',
-  templateUrl: './prevention.component.html',
-  styleUrls: ['./prevention.component.scss']
+  selector: 'app-treatment',
+  templateUrl: './treatment.component.html',
+  styleUrls: ['./treatment.component.scss']
 })
-export class PreventionComponent implements OnInit {
-
-  preventions:object;
+export class TreatmentComponent implements OnInit {
+  treatments:object;
   EditForm: FormGroup;
   AddForm: FormGroup;
-  nprevention:object;
+  ntreatment:object;
   rca:object;
   rcv:object;
-  public editPrev: any = { 
-    Prev_ID :'',
-    Prev_Desc : '',
-    Prev_Type:'',
+  public editTreat: any = { 
+    Treat_ID :'',
+    Treat_Desc : '',
+    Treat_Type:'',
     Des_ID : ''
   };
   Selection:number =0;
@@ -26,19 +24,18 @@ export class PreventionComponent implements OnInit {
   editistrue=false;
   addistrue= false;
   addAct=true;
-
   constructor(private data: MalariaService,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.data.GetPrevention().subscribe(res => {
-      this.preventions = res
-      console.log(this.preventions)})
+    this.data.GetTreatment().subscribe(res => {
+      this.treatments = res
+      console.log(this.treatments)})
   }
-  addPrev1(){
+  addTreat1(){
     this.AddForm = this.formBuilder.group({
-      Prev_ID: [""],
-      Prev_Desc: [""],
-      Prev_Type: [""],
+      Treat_ID: [""],
+      Treat_Desc: [""],
+      Treat_Type: [""],
       Dis_Name:[""]
     });
     this.data.GetDisease().subscribe( (res) => {
@@ -46,16 +43,16 @@ export class PreventionComponent implements OnInit {
     })
     this.addistrue=true;
   this.addAct=false}
-    addPrevention(){
-  var P_des = this.AddForm.get('Prev_Desc').value;
-   var P_type = this.AddForm.get('Prev_Type').value;
+    addTreatment(){
+  var T_des = this.AddForm.get('Treat_Desc').value;
+   var T_type = this.AddForm.get('Treat_Type').value;
   var D_id = this.AddForm.get('Dis_Name').value;
-    this.nprevention = {
-      "Prev_Desc": P_des,
-      "Prev_Type": P_type,
+    this.ntreatment = {
+      "Treat_Desc": T_des,
+      "Treat_Type": T_type,
       "Des_ID": D_id
   };
-    this.data.PostPrevention(this.nprevention).subscribe(res => {
+    this.data.PostTreatment(this.ntreatment).subscribe(res => {
       this.rca = res
       console.log(this.rca)
       this.ngOnInit()}
@@ -63,38 +60,38 @@ export class PreventionComponent implements OnInit {
       this.addAct=true;
       this.addistrue=false;
   }
-removePrevention(id){
-  this.data.DeletePrevention(id).subscribe(res => {
+removeTreatment(id){
+  this.data.DeleteTreatment(id).subscribe(res => {
     this.rcv = res
     console.log(this.rcv)
     this.ngOnInit()})
 }
-edit(PID,PD,PT,DID){
+edit(TID,TD,TT,DID){
   this.data.GetDisease().subscribe( (res) => {
     this.options = JSON.parse(JSON.stringify(res));
     console.log(this.options[0]);
   })
   this.EditForm = this.formBuilder.group({
-    Prev_ID: [PID],
-    Prev_Desc: [PD],
-    Prev_Type:[PT],
+    Treat_ID: [TID],
+    Treat_Desc: [TD],
+    Treat_Type:[TT],
     Dis_Name: [DID]
   });
   this.editistrue =true;
 }
-updatePrevention(){
-  var P_id = this.EditForm.get('Prev_ID').value;
-  var P_des = this.EditForm.get('Prev_Desc').value;
-  var P_type = this.EditForm.get('Prev_Type').value;
+updateTreatment(){
+  var T_id = this.EditForm.get('Treat_ID').value;
+  var T_des = this.EditForm.get('Treat_Desc').value;
+  var T_type = this.EditForm.get('Treat_Type').value;
   var D_id = this.EditForm.get('Dis_Name').value;
   console.log(D_id)
-  this.nprevention = {
-    "Prev_ID": P_id,
-    "Prev_Desc": P_des,
-    "Prev_Type": P_type,
+  this.ntreatment = {
+    "Treat_ID": T_id,
+    "Treat_Desc": T_des,
+    "Treat_Type": T_type,
     "Des_ID": D_id
 };
-  this.data.PutPrevention(P_id,this.nprevention).subscribe(res => {
+  this.data.PutTreatment(T_id,this.ntreatment).subscribe(res => {
     this.rcv = res
     console.log(this.rcv)
     this.ngOnInit()
@@ -110,6 +107,5 @@ cancelAC(){
   this.addistrue =false;
   this.AddForm.reset();
 }
-
 
 }

@@ -41,9 +41,52 @@ table {
     padding: 8px;
   }
   
-  tr:nth-child(even){background-color: #2e963f}
+  tr:nth-child(even){background-color: #ff3d3d}
   
   th {
-    background-color: rgb(65, 102, 226);
+    background-color: rgb(206, 133, 133);
     color: rgb(255, 255, 255);
   }
+  label {
+    display: block;
+    
+    input, textarea {
+        display: block;
+        width: 50%;
+        margin-bottom: 20px;
+        padding: 1em;
+    }
+
+    .error {
+        margin-top: -20px;
+        background: yellow;
+        padding: .5em;
+        display: inline-block;
+        font-size: .9em;
+        margin-bottom: 20px;
+    }
+}
+
+.cta {
+    background: rgb(255, 151, 151);
+    border: none;
+    color: white;
+
+    text-transform: uppercase;
+    border-radius: 4px;
+    padding: 1em;
+    cursor: pointer;
+    font-family: 'Montserrat';
+}
+
+.results {
+    margin-top: 50px;
+
+    strong {
+        display: block;
+    }
+    span {
+        margin-bottom: 20px;
+        display: block;
+    }
+}

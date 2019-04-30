@@ -9,52 +9,52 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using MalariaAPI2.Models;
-using System.Dynamic;
 using System.Web.Http.Cors;
+using System.Dynamic;
 
 namespace MalariaAPI2.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
-    public class PreventionsController : ApiController
+    public class RP_DesController : ApiController
     {
         private Malaria_DBEntities db = new Malaria_DBEntities();
 
-        // GET: api/Preventions
-        public List<dynamic> GetPreventions()
+        // GET: api/RP_Des
+        public List<dynamic> GetRP_Des()
         {
             db.Configuration.ProxyCreationEnabled = false;
-            List<Prevention> prev1 = db.Preventions.Include(zz => zz.Desease).ToList();
+            List<RP_Des> RPD1 = db.RP_Des.Include(aa => aa.Risk_Period).Include(zz => zz.Desease).ToList();
             List<dynamic> toReturn = new List<dynamic>();
-            foreach (Prevention c in prev1)
+            foreach (RP_Des c in RPD1)
             {
                 dynamic m = new ExpandoObject();
-                m.Prev_ID = c.Prev_ID;
-                m.Prev_Desc = c.Prev_Desc;
-                m.Prev_Type = c.Prev_Type;
+                m.RP_Des_ID = c.RP_Des_ID;
                 m.Des_ID = c.Des_ID;
+                m.RiskP_ID = c.RiskP_ID;
                 m.Des_Name = c.Desease.Des_Name;
+                m.RiskP_Desc = c.Risk_Period.RiskP_Desc;
                 toReturn.Add(m);
             }
             return toReturn;
         }
 
-        // GET: api/Preventions/5
-        [ResponseType(typeof(Prevention))]
-        public IHttpActionResult GetPrevention(int id)
+        // GET: api/RP_Des/5
+        [ResponseType(typeof(RP_Des))]
+        public IHttpActionResult GetRP_Des(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            Prevention prevention = db.Preventions.Find(id);
-            if (prevention == null)
+            RP_Des rP_Des = db.RP_Des.Find(id);
+            if (rP_Des == null)
             {
                 return NotFound();
             }
 
-            return Ok(prevention);
+            return Ok(rP_Des);
         }
 
-        // PUT: api/Preventions/5
+        // PUT: api/RP_Des/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutPrevention(int id, Prevention prevention)
+        public IHttpActionResult PutRP_Des(int id, RP_Des rP_Des)
         {
             db.Configuration.ProxyCreationEnabled = false;
             if (!ModelState.IsValid)
@@ -62,12 +62,12 @@ namespace MalariaAPI2.Controllers
                 return BadRequest(ModelState);
             }
 
-            if (id != prevention.Prev_ID)
+            if (id != rP_Des.RP_Des_ID)
             {
                 return BadRequest();
             }
 
-            db.Entry(prevention).State = EntityState.Modified;
+            db.Entry(rP_Des).State = EntityState.Modified;
 
             try
             {
@@ -75,7 +75,7 @@ namespace MalariaAPI2.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PreventionExists(id))
+                if (!RP_DesExists(id))
                 {
                     return NotFound();
                 }
@@ -88,9 +88,9 @@ namespace MalariaAPI2.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Preventions
-        [ResponseType(typeof(Prevention))]
-        public IHttpActionResult PostPrevention(Prevention prevention)
+        // POST: api/RP_Des
+        [ResponseType(typeof(RP_Des))]
+        public IHttpActionResult PostRP_Des(RP_Des rP_Des)
         {
             db.Configuration.ProxyCreationEnabled = false;
             if (!ModelState.IsValid)
@@ -98,27 +98,27 @@ namespace MalariaAPI2.Controllers
                 return BadRequest(ModelState);
             }
 
-            db.Preventions.Add(prevention);
+            db.RP_Des.Add(rP_Des);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = prevention.Prev_ID }, prevention);
+            return CreatedAtRoute("DefaultApi", new { id = rP_Des.RP_Des_ID }, rP_Des);
         }
 
-        // DELETE: api/Preventions/5
-        [ResponseType(typeof(Prevention))]
-        public IHttpActionResult DeletePrevention(int id)
+        // DELETE: api/RP_Des/5
+        [ResponseType(typeof(RP_Des))]
+        public IHttpActionResult DeleteRP_Des(int id)
         {
             db.Configuration.ProxyCreationEnabled = false;
-            Prevention prevention = db.Preventions.Find(id);
-            if (prevention == null)
+            RP_Des rP_Des = db.RP_Des.Find(id);
+            if (rP_Des == null)
             {
                 return NotFound();
             }
 
-            db.Preventions.Remove(prevention);
+            db.RP_Des.Remove(rP_Des);
             db.SaveChanges();
 
-            return Ok(prevention);
+            return Ok(rP_Des);
         }
 
         protected override void Dispose(bool disposing)
@@ -130,9 +130,9 @@ namespace MalariaAPI2.Controllers
             base.Dispose(disposing);
         }
 
-        private bool PreventionExists(int id)
+        private bool RP_DesExists(int id)
         {
-            return db.Preventions.Count(e => e.Prev_ID == id) > 0;
+            return db.RP_Des.Count(e => e.RP_Des_ID == id) > 0;
         }
     }
 }
