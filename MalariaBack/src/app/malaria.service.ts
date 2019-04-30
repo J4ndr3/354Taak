@@ -43,5 +43,30 @@ export class MalariaService {
   PutPrevention(id, Prevention){
     return this.http.put('http://localhost:30264/api/Preventions/'+id,Prevention)
   }
+  GetSymp_Des() {
+    return this.http.get('http://localhost:30264/api/Symp_Des')
+  }
+  PostSymp_Des(Loc_Des){
+    return this.http.post('http://localhost:30264/api/Symp_Des',Loc_Des)
+  }
+  DeleteSymp_Des(id){
+    return this.http.delete('http://localhost:30264/api/Symp_Des/'+id)
+  }
+  PutSymp_Des(id, Loc_Des){
+    return this.http.put('http://localhost:30264/api/Symp_Des/'+id, Loc_Des)
+  }
+GetSymptoms() {
+    return this.http.get('http://localhost:30264/api/Symptoms')
+  }
+  PostSymptoms(symp){
+    return this.http.post('http://localhost:30264/api/Symptoms',symp)
+  }
+  DeleteSymptoms(id){
+    return this.http.delete('http://localhost:30264/api/Symptoms/'+id)
+  }
+  PutSymptoms(id, symp){
+    return this.http.put('http://localhost:30264/api/Symptoms/'+id,symp)
+  }
+
 
 }
