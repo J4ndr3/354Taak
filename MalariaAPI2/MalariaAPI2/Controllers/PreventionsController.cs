@@ -23,7 +23,7 @@ namespace MalariaAPI2.Controllers
         public List<dynamic> GetPreventions()
         {
             db.Configuration.ProxyCreationEnabled = false;
-            List<Prevention> prev1 = db.Preventions.ToList();
+            List<Prevention> prev1 = db.Preventions.Include(zz => zz.Desease).ToList();
             List<dynamic> toReturn = new List<dynamic>();
             foreach (Prevention c in prev1)
             {
@@ -32,6 +32,7 @@ namespace MalariaAPI2.Controllers
                 m.Prev_Desc = c.Prev_Desc;
                 m.Prev_Type = c.Prev_Type;
                 m.Des_ID = c.Des_ID;
+                m.Des_Name = c.Desease.Des_Name;
                 toReturn.Add(m);
             }
             return toReturn;

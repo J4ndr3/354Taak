@@ -76,8 +76,6 @@
     <Property Name="RiskP_ID" Type="int" />
     <Property Name="RP_Des_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'Malaria_DB.dbo.Symp_Des' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Symp_Des">
     <Key>
       <PropertyRef Name="Symp_Des_ID" />
@@ -234,15 +232,9 @@ warning 6002: The table/view 'Malaria_DB.dbo.Symp_Des' does not have a primary k
     <EntitySet Name="Prevention" EntityType="Self.Prevention" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Risk_Period" EntityType="Self.Risk_Period" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="RP_Des" EntityType="Self.RP_Des" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Symp_Des" EntityType="Self.Symp_Des" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Symptoms" EntityType="Self.Symptoms" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Treatment" EntityType="Self.Treatment" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Symp_Des" EntityType="Self.Symp_Des" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Symp_Des].[Des_ID] AS [Des_ID], 
-    [Symp_Des].[Symp_ID] AS [Symp_ID], 
-    [Symp_Des].[Symp_Des_ID] AS [Symp_Des_ID]
-    FROM [dbo].[Symp_Des] AS [Symp_Des]</DefiningQuery>
-    </EntitySet>
     <AssociationSet Name="FK__Causes__Des_ID__1A14E395" Association="Self.FK__Causes__Des_ID__1A14E395">
       <End Role="Desease" EntitySet="Desease" />
       <End Role="Causes" EntitySet="Causes" />

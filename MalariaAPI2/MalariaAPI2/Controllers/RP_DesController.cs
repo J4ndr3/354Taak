@@ -28,9 +28,9 @@ namespace MalariaAPI2.Controllers
             foreach (RP_Des c in RPD1)
             {
                 dynamic m = new ExpandoObject();
-                m.Symp_Des_ID = c.RP_Des_ID;
+                m.RP_Des_ID = c.RP_Des_ID;
                 m.Des_ID = c.Des_ID;
-                m.Symp_ID = c.RiskP_ID;
+                m.RiskP_ID = c.RiskP_ID;
                 m.Des_Name = c.Desease.Des_Name;
                 m.RiskP_Desc = c.Risk_Period.RiskP_Desc;
                 toReturn.Add(m);

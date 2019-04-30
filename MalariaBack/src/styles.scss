@@ -41,10 +41,10 @@ table {
     padding: 8px;
   }
   
-  tr:nth-child(even){background-color: #2e963f}
+  tr:nth-child(even){background-color: #ff3d3d}
   
   th {
-    background-color: rgb(65, 102, 226);
+    background-color: rgb(206, 133, 133);
     color: rgb(255, 255, 255);
   }
   label {
@@ -68,7 +68,7 @@ table {
 }
 
 .cta {
-    background: #7700FF;
+    background: rgb(255, 151, 151);
     border: none;
     color: white;
 
