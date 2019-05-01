@@ -80,5 +80,30 @@ GetSymptoms() {
   PutTreatment(id, Treatment){
     return this.http.put('http://localhost:30264/api/Treatments/'+id,Treatment)
   }
+  GetRiskPeriod() {
+    return this.http.get('http://localhost:30264/api/RiskPeriods')
+  }
+  PostRiskPeriod(RiskPeriod){
+    return this.http.post('http://localhost:30264/api/RiskPeriods',RiskPeriod)
+  }
+  DeleteRiskPeriod (id){
+    return this.http.delete('http://localhost:30264/api/RiskPeriods/'+id)
+  }
+  PutRiskPeriod (id, RiskPeriod){
+    return this.http.put('http://localhost:30264/api/ RiskPeriods/'+id, RiskPeriod)
+  }
+  GetRP_Des() {
+    return this.http.get('http://localhost:30264/api/RP_Des')
+  }
+  PostRP_Des(Loc_Des){
+    return this.http.post('http://localhost:30264/api/RP_Des',Loc_Des)
+  }
+  DeleteRP_Des(id){
+    return this.http.delete('http://localhost:30264/api/RP_Des/'+id)
+  }
+  PutRP_Des(id, Loc_Des){
+    return this.http.put('http://localhost:30264/api/RP_Des/'+id, Loc_Des)
+  }
+
 
 }

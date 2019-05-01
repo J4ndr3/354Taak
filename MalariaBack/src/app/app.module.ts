@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { PreventionComponent } from './prevention/prevention.component';
 import { SymptomComponent } from './symptom/symptom.component';
 import { TreatmentComponent } from './treatment/treatment.component';
+import { RiskPeriodComponent } from './risk-period/risk-period.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TreatmentComponent } from './treatment/treatment.component';
     NavComponent,
     PreventionComponent,
     SymptomComponent,
-    TreatmentComponent
+    TreatmentComponent,
+    RiskPeriodComponent
   ],
   imports: [
     BrowserModule,
