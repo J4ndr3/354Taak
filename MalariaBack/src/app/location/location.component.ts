@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MalariaService } from '../malaria.service';
 import { FormBuilder,FormGroup } from '@angular/forms';
+import {IsLoggedinService} from '../is-loggedin.service'
+
 @Component({
   selector: 'app-location',
   templateUrl: './location.component.html',
@@ -31,9 +33,10 @@ export class LocationComponent implements OnInit {
   addLDisTrue = false;
   editLDisTrue = false;
   addAct=true;
-  constructor(private data: MalariaService,private formBuilder: FormBuilder) { }
+  constructor(private data: MalariaService,private login:IsLoggedinService,private formBuilder: FormBuilder) { }
  
   ngOnInit() {
+    this.login.testlogin();
     this.data.GetLocations().subscribe(res => {
       this.locations = res
       console.log(this.locations)})

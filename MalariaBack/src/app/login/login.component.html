@@ -1,3 +1,20 @@
-<p>
-  login works!
-</p>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" *ngIf="!success">
+  <h1>Login as Medical Professional</h1>
+  <label>
+    Email:
+    <input type="text" formControlName="name">
+    <div *ngIf="submitted && loginForm.controls.name.errors" class="error">
+      <div *ngIf="messageForm.controls.name.errors.required">An UserID is required</div>
+    </div>
+  </label>
+
+  <label>
+    Password:
+    <input type="password" formControlName="message">
+    <div *ngIf="submitted && loginForm.controls.message.errors" class="error">
+      <div *ngIf="messageForm.controls.message.errors.required">A Password is required</div>
+    </div>
+  </label>
+
+  <input type="submit" value="Add Item" class="cta" >
+</form>

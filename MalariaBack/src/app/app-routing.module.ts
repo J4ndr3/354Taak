@@ -8,10 +8,12 @@ import { SymptomComponent } from './symptom/symptom.component';
 import { TreatmentComponent } from './treatment/treatment.component';
 import { RiskPeriodComponent } from './risk-period/risk-period.component';
 import { LocationComponent } from './location/location.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [  {path:'Home',component:HomeComponent},
-{ path: '', component: CausesComponent },
+{ path: '', component: LoginComponent },
+{ path: 'Causes', component: CausesComponent },
 { path: 'Disease', component: DiseaseComponent },
 { path:'Prevention', component:PreventionComponent },
 {path:'Symptom', component:SymptomComponent},

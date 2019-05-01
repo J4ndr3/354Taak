@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MalariaService } from '../malaria.service';
 import { FormBuilder,FormGroup } from '@angular/forms';
 import { forEach } from '@angular/router/src/utils/collection';
+import {IsLoggedinService} from '../is-loggedin.service'
+
 
 @Component({
   selector: 'app-causes',
@@ -25,9 +27,10 @@ options:Array<object>;
 editistrue=false;
 addistrue= false;
 addAct=true;
-  constructor(private data: MalariaService,private formBuilder: FormBuilder) { }
+  constructor(private data: MalariaService,private login:IsLoggedinService,private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    this.login.testlogin();
     this.data.GetCauses().subscribe(res => {
       this.causes = res
       console.log(this.causes)})

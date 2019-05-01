@@ -23,7 +23,7 @@
   <form [formGroup]="EditForm" (ngSubmit)="updateLocation()">
     <label>
       Location ID:
-      <input type="text" formControlName="Loc_ID">
+      <input type="text" formControlName="Loc_ID" disabled>
     </label>
     <label>
       Location Name:
@@ -108,7 +108,7 @@
   <form [formGroup]="EditFormLoc_des" (ngSubmit)="updateLoc_Des()">
     <label>
       Location Disease ID:
-      <input type="text" formControlName="Loc_Des_ID">
+      <input type="text" formControlName="Loc_Des_ID" disabled>
     </label>
     <label>
       Location Name:
