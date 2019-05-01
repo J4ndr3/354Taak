@@ -41,6 +41,8 @@
     <Property Name="MP_Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="MP_Email" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="MP_Password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="GUID" Type="uniqueidentifier" />
+    <Property Name="GUIDExp" Type="datetime2" Precision="7" />
   </EntityType>
   <EntityType Name="Notifications">
     <Key>

@@ -250,6 +250,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\Loc_DesController.cs" />
+    <Compile Include="Controllers\LogedInController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\Medical_ProffesionalsController.cs" />
     <Compile Include="Controllers\PreventionsController.cs" />
     <Compile Include="Controllers\Risk_PeriodController.cs" />

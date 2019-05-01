@@ -25,6 +25,8 @@ namespace MalariaAPI2.Models
         public string MP_Surname { get; set; }
         public string MP_Email { get; set; }
         public string MP_Password { get; set; }
+        public Nullable<System.Guid> GUID { get; set; }
+        public Nullable<System.DateTime> GUIDExp { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Notification> Notifications { get; set; }

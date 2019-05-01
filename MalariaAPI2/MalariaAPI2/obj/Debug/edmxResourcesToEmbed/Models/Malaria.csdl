@@ -42,6 +42,8 @@
     <Property Name="MP_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="MP_Password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Notifications" Relationship="Self.FK__Notificat__MP_ID__22AA2996" FromRole="Medical_Proffesionals" ToRole="Notifications" />
+    <Property Name="GUID" Type="Guid" />
+    <Property Name="GUIDExp" Type="DateTime" Precision="7" />
   </EntityType>
   <EntityType Name="Notification">
     <Key>
