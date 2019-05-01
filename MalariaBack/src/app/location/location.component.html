@@ -1,0 +1,135 @@
+<h1>Locations</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Location Name</th>
+    <th>Severity</th>
+    <th>Remove</th>
+    <th>Edit</th>
+  </tr>
+  <tr *ngFor="let loc of locations">
+    <td>{{loc.Loc_ID}}</td>
+    <td>{{loc.Loc_Name}}</td>
+    <td>{{loc.Loc_Severity}}</td>
+    <td><button (click)="removeLocation(loc.Loc_ID)"  class="cta">Remove</button></td>
+    <td><button (click)="edit(loc.Loc_ID,loc.Loc_Name,loc.Loc_Severity)"  class="cta">Edit</button></td>
+  </tr>
+</table>
+<button (click)="addLocation1()" *ngIf="addAct" class="cta">Click to add new Location</button>
+
+
+
+<div *ngIf="editistrue">
+  <form [formGroup]="EditForm" (ngSubmit)="updateLocation()">
+    <label>
+      Location ID:
+      <input type="text" formControlName="Loc_ID">
+    </label>
+    <label>
+      Location Name:
+      <input type="text" formControlName="Loc_Name">
+    </label>
+    <label>
+      Severity:
+      <input type="text" formControlName="Loc_Severity">
+    </label>
+  <br>
+  <br>
+    <input type="submit" value="Update Item" class="cta" >
+    <br>
+    <br>
+    <input type="button" (click)="cancelUC()"value="Cancel" class="cta">
+  </form>
+</div>
+
+<div *ngIf="addistrue">
+  <form [formGroup]="AddForm" (ngSubmit)="addLocation()">
+    <label>
+      Location Name:
+      <input type="text" formControlName="Loc_Name">
+    </label>
+    <label>
+      Location Severity:
+      <input type="text" formControlName="Loc_Severity">
+    </label>
+  <br>
+  <br>
+    <input type="submit" value="Add Item" class="cta" >
+    <br>
+    <br>
+    <input type="button" (click)="cancelAC()"value="Cancel" class="cta">
+  </form>
+</div>
+<h1>Location and diseas links</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Location Name</th>
+    <th>Disease</th>
+    <th>Remove</th>
+    <th>Edit</th>
+  </tr>
+  <tr *ngFor="let loc_des of loc_des_s">
+    <td>{{loc_des.Loc_Des_ID}}</td>
+    <td>{{loc_des.Loc_Name}}</td>
+    <td>{{loc_des.Des_Name}}</td>
+    <td><button (click)="removeLoc_Des(loc_des.Loc_Des_ID)"  class="cta">Remove</button></td>
+    <td><button (click)="editloc_des(loc_des.Loc_Des_ID,loc_des.Loc_ID,loc_des.Des_ID)"  class="cta">Edit</button></td>
+  </tr>
+</table>
+<button (click)="addLoc_des()" *ngIf="addAct" class="cta">Click to add new Location and Disease link</button>
+
+<div *ngIf="addLDisTrue">
+  <form [formGroup]="AddFormLoc_des" (ngSubmit)="addLD()">
+    <label>
+      Location Name:
+    </label>
+    <select formControlName="Loc_Name" [(value)]="SelectionLoc">
+      <option value="" disabled>Choose the Location</option>
+      <option *ngFor="let opt of optionsl" [(value)]="opt.Loc_ID">{{opt.Loc_Name}}</option>
+   </select>
+    <label>
+      Disease Name:
+    </label>
+    <select formControlName="Dis_Name" [(value)]="SelectionDes">
+      <option value="" disabled>Choose the Disease</option>
+      <option *ngFor="let opt of optionsd" [(value)]="opt.Des_ID">{{opt.Des_Name}}</option>
+   </select>
+  <br>
+  <br>
+    <input type="submit" value="Add Item" class="cta" >
+    <br>
+    <br>
+    <input type="button" (click)="cancelALD()"value="Cancel" class="cta">
+  </form>
+</div>
+
+<div *ngIf="editLDisTrue">
+  <form [formGroup]="EditFormLoc_des" (ngSubmit)="updateLoc_Des()">
+    <label>
+      Location Disease ID:
+      <input type="text" formControlName="Loc_Des_ID">
+    </label>
+    <label>
+      Location Name:
+    </label>
+    <select formControlName="Loc_Name" [(value)]="SelectionLoc">
+      <option value="" disabled>Choose the Location</option>
+      <option *ngFor="let opt of optionsl" [(value)]="opt.Loc_ID">{{opt.Loc_Name}}</option>
+   </select>
+    <label>
+      Disease Name:
+    </label>
+    <select formControlName="Dis_Name" [(value)]="SelectionDes">
+      <option value="" disabled>Choose the Disease</option>
+      <option *ngFor="let opt of optionsd" [(value)]="opt.Des_ID">{{opt.Des_Name}}</option>
+   </select>
+  <br>
+  <br>
+    <input type="submit" value="Update Item" class="cta" >
+    <br>
+    <br>
+    <input type="button" (click)="cancelULD()"value="Cancel" class="cta">
+  </form>
+</div>
+

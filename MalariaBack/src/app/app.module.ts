@@ -14,6 +14,7 @@ import { PreventionComponent } from './prevention/prevention.component';
 import { SymptomComponent } from './symptom/symptom.component';
 import { TreatmentComponent } from './treatment/treatment.component';
 import { RiskPeriodComponent } from './risk-period/risk-period.component';
+import { LocationComponent } from './location/location.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { RiskPeriodComponent } from './risk-period/risk-period.component';
     PreventionComponent,
     SymptomComponent,
     TreatmentComponent,
-    RiskPeriodComponent
+    RiskPeriodComponent,
+    LocationComponent
   ],
   imports: [
     BrowserModule,

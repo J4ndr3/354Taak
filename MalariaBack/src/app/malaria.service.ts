@@ -105,5 +105,30 @@ GetSymptoms() {
     return this.http.put('http://localhost:30264/api/RP_Des/'+id, Loc_Des)
   }
 
+  GetLocations() {
+    return this.http.get('http://localhost:30264/api/Locations')
+  }
+  PostLocations(Loc){
+    return this.http.post('http://localhost:30264/api/Locations',Loc)
+  }
+  DeleteLocations(id){
+    return this.http.delete('http://localhost:30264/api/Locations/'+id)
+  }
+  PutLocations(id, Loc){
+    return this.http.put('http://localhost:30264/api/Locations/'+id,Loc)
+  }
+GetLoc_Des() {
+    return this.http.get('http://localhost:30264/api/Loc_Des')
+  }
+  PostLoc_Des(Loc_Des){
+    return this.http.post('http://localhost:30264/api/Loc_Des',Loc_Des)
+  }
+  DeleteLoc_Des(id){
+    return this.http.delete('http://localhost:30264/api/Loc_Des/'+id)
+  }
+  PutLoc_Des(id, Loc_Des){
+    return this.http.put('http://localhost:30264/api/Loc_Des/'+id, Loc_Des)
+  }
+
 
 }
