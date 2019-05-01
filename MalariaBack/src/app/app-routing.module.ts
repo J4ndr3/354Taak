@@ -7,6 +7,7 @@ import { PreventionComponent } from './prevention/prevention.component';
 import { SymptomComponent } from './symptom/symptom.component';
 import { TreatmentComponent } from './treatment/treatment.component';
 import { RiskPeriodComponent } from './risk-period/risk-period.component';
+import { LocationComponent } from './location/location.component';
 
 
 const routes: Routes = [  {path:'Home',component:HomeComponent},
@@ -15,8 +16,9 @@ const routes: Routes = [  {path:'Home',component:HomeComponent},
 { path:'Prevention', component:PreventionComponent },
 {path:'Symptom', component:SymptomComponent},
 { path:'Treatment', component:TreatmentComponent },
-{ path:'RiskPeriod', component:RiskPeriodComponent }];
-{path:'Location',component:LocationComponent}
+{ path:'RiskPeriod', component:RiskPeriodComponent },
+{path:'Location',component:LocationComponent}];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
