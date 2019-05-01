@@ -15,6 +15,8 @@ import { SymptomComponent } from './symptom/symptom.component';
 import { TreatmentComponent } from './treatment/treatment.component';
 import { RiskPeriodComponent } from './risk-period/risk-period.component';
 import { LocationComponent } from './location/location.component';
+import { MedicalProfComponent } from './medical-prof/medical-prof.component';
+import { NotificatonsComponent } from './notificatons/notificatons.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { LocationComponent } from './location/location.component';
     SymptomComponent,
     TreatmentComponent,
     RiskPeriodComponent,
-    LocationComponent
+    LocationComponent,
+    MedicalProfComponent,
+    NotificatonsComponent
   ],
   imports: [
     BrowserModule,

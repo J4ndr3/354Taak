@@ -129,6 +129,22 @@ GetLoc_Des() {
   PutLoc_Des(id, Loc_Des){
     return this.http.put('http://localhost:30264/api/Loc_Des/'+id, Loc_Des)
   }
-
-
+  GetMP() {
+    return this.http.get('http://localhost:30264/api/Medical_Proffesionals')
+  }
+  PostMP(Loc_Des){
+    return this.http.post('http://localhost:30264/api/Medical_Proffesionals',Loc_Des)
+  }
+  DeleteMP(id){
+    return this.http.delete('http://localhost:30264/api/Medical_Proffesionals/'+id)
+  }
+  PutMP(id, Loc_Des){
+    return this.http.put('http://localhost:30264/api/Medical_Proffesionals/'+id, Loc_Des)
+  }
+  GetNote() {
+    return this.http.get('http://localhost:30264/api/Notifications')
+  }
+  PostNote(Loc_Des){
+    return this.http.post('http://localhost:30264/api/Notifications',Loc_Des)
+  }
 }

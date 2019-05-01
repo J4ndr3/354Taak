@@ -1,0 +1,42 @@
+<h1>Notifications</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Description</th>
+    <th>Date</th>
+    <th>Medical Professional Name</th>
+  </tr>
+  <tr *ngFor="let Cause of notes">
+    <td>{{Cause.Note_ID}}</td>
+    <td>{{Cause.Note_Desc}}</td>
+    <td>{{Cause.Note_Date}}</td>
+    <td>{{Cause.MP_Name}}</td>
+  </tr>
+</table>
+<button (click)="addCause1()" *ngIf="addAct" class="cta">Click to add new notification</button>
+<div *ngIf="addistrue">
+    <form [formGroup]="AddForm" (ngSubmit)="addCause()">
+      <label>
+       Description:
+        <input type="text" formControlName="Note_Desc">
+      </label>
+      <label>
+          Date:
+           <input type="date" formControlName="Note_Date">
+         </label>
+      <label>
+        Medical professional:
+      </label>
+      <select formControlName="MP_Name" [(value)]="Selection">
+        <option value="" disabled>Choose the Medical Professional</option>
+        <option *ngFor="let opt of options" [(value)]="opt.MP_ID">{{opt.MP_Name}}</option>
+     </select>
+    <br>
+    <br>
+      <input type="submit" value="Add Item" class="cta" >
+      <br>
+      <br>
+      <input type="button" (click)="cancelAC()"value="Cancel" class="cta">
+    </form>
+  </div>
+  

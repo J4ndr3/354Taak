@@ -1,0 +1,83 @@
+<h1>Medical Professionals</h1>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Remove</th>
+    <th>Edit</th>
+  </tr>
+  <tr *ngFor="let Dis of medicalprofs">
+    <td>{{Dis.MP_ID}}</td>
+    <td>{{Dis.MP_Name}}</td>
+    <td>{{Dis.MP_Surname}}</td>
+    <td>{{Dis.MP_Email}}</td>
+    <td>{{Dis.MP_Password}}</td>
+    <td><button (click)="removeDisease(Dis.MP_ID)" class="cta">Remove</button></td>
+    <td><button (click)="edit(Dis.MP_ID,Dis.MP_Name,Dis.MP_Surname,Dis.MP_Email,Dis.MP_Password)"
+        class="cta">Edit</button></td>
+  </tr>
+</table>
+<button (click)="addDisease1()" *ngIf="addAct" class="cta">Click to add new Disease</button>
+
+
+
+<div *ngIf="editistrue">
+  <form [formGroup]="EditForm" (ngSubmit)="updateDisease()">
+    <label>
+      ID:
+      <input type="text" formControlName="MP_ID" disabled>
+    </label>
+    <label>
+      Name:
+      <input type="text" formControlName="MP_Name">
+    </label>
+    <label>
+      Surname:
+      <input type="text" formControlName="MP_Surname">
+    </label>
+    <label>
+      Email:
+      <input type="text" formControlName="MP_Email">
+    </label>
+    <label>
+      Password:
+      <input type="text" formControlName="MP_Password">
+    </label>
+    <br>
+    <br>
+    <input type="submit" value="Update Item" class="cta">
+    <br>
+    <br>
+    <input type="button" (click)="cancelUC()" value="Cancel" class="cta">
+  </form>
+</div>
+
+<div *ngIf="addistrue">
+  <form [formGroup]="AddForm" (ngSubmit)="addDisease()">
+      <label>
+          Name:
+          <input type="text" formControlName="MP_Name">
+        </label>
+        <label>
+          Surname:
+          <input type="text" formControlName="MP_Surname">
+        </label>
+        <label>
+          Email:
+          <input type="text" formControlName="MP_Email">
+        </label>
+        <label>
+          Password:
+          <input type="text" formControlName="MP_Password">
+        </label>
+    <br>
+    <br>
+    <input type="submit" value="Add Item" class="cta">
+    <br>
+    <br>
+    <input type="button" (click)="cancelAC()" value="Cancel" class="cta">
+  </form>
+</div>
