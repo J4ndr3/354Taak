@@ -20,20 +20,27 @@ export class LoginComponent implements OnInit {
   }
   onSubmit() {
     var id = this.loginForm.get('name').value;
-    sessionStorage.setItem("user",id);
     var des = this.loginForm.get('message').value;
-    sessionStorage.setItem("pass",des);
-
-    this.data.LogIn(id, des).subscribe(data => {
-      if (data[0].Correct == true)
-      {
-        this.router.navigateByUrl('/Disease');
-      }
-      else
-      {
-        alert("The email or password did not match")
-      }
-    });
+    if (id == ''||des=='')
+    {
+      alert("Pleas fill in all the values")
+    }
+    else
+    {
+      sessionStorage.setItem("pass",des);
+      sessionStorage.setItem("user",id);
+      this.data.LogIn(id, des).subscribe(data => {
+        if (data[0].Correct == true)
+        {
+          this.router.navigateByUrl('/Disease');
+        }
+        else
+        {
+          alert("The email or password did not match")
+        }
+      });
+    }
+    
 
   }
 

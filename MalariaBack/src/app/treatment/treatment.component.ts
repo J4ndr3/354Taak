@@ -49,6 +49,12 @@ export class TreatmentComponent implements OnInit {
   var T_des = this.AddForm.get('Treat_Desc').value;
    var T_type = this.AddForm.get('Treat_Type').value;
   var D_id = this.AddForm.get('Dis_Name').value;
+  if (T_des==''||T_type==''||D_id=='')
+  {
+    alert("Please fill in all fields")
+  }
+  else
+  {
     this.ntreatment = {
       "Treat_Desc": T_des,
       "Treat_Type": T_type,
@@ -61,6 +67,8 @@ export class TreatmentComponent implements OnInit {
       )
       this.addAct=true;
       this.addistrue=false;
+  }
+    
   }
 removeTreatment(id){
   this.data.DeleteTreatment(id).subscribe(res => {
@@ -86,6 +94,12 @@ updateTreatment(){
   var T_des = this.EditForm.get('Treat_Desc').value;
   var T_type = this.EditForm.get('Treat_Type').value;
   var D_id = this.EditForm.get('Dis_Name').value;
+  if (T_des==''||T_type==''||D_id=='')
+  {
+    alert("Please fill in all fields")
+  }
+  else
+  {
   console.log(D_id)
   this.ntreatment = {
     "Treat_ID": T_id,
@@ -97,7 +111,7 @@ updateTreatment(){
     this.rcv = res
     console.log(this.rcv)
     this.ngOnInit()
-  })
+  })}
 }
 cancelUC(){
   this.EditForm.reset();

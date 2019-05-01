@@ -108,19 +108,27 @@ export class SymptomComponent implements OnInit {
     var L_D_id = this.EditFormSymp_Des.get('Symp_Des_ID').value;
     var L_Name = this.EditFormSymp_Des.get('Symp_Desc').value;
     var D_Name = this.EditFormSymp_Des.get('Dis_Name').value;
-    console.log(L_D_id)
-    this.nSymDes = {
-      "Symp_Des_ID": L_D_id,
-      "Symp_ID": L_Name,
-      "Des_ID": D_Name
-  };
-  console.log(this.nSymDes)
-    this.data.PutSymp_Des(L_D_id,this.nSymDes).subscribe(res => {
-      this.rcv = res
-      console.log(this.rcv)
-      this.ngOnInit()
-    })
-    this.editLDisTrue= false;
+    if (L_Name==''||D_Name=='')
+    {
+      alert("Please fill in all the fields")
+    }
+    else
+    {
+      console.log(L_D_id)
+      this.nSymDes = {
+        "Symp_Des_ID": L_D_id,
+        "Symp_ID": L_Name,
+        "Des_ID": D_Name
+    };
+    console.log(this.nSymDes)
+      this.data.PutSymp_Des(L_D_id,this.nSymDes).subscribe(res => {
+        this.rcv = res
+        console.log(this.rcv)
+        this.ngOnInit()
+      })
+      this.editLDisTrue= false;
+    }
+   
   }
   cancelALD(){
     this.addLDisTrue=false;
@@ -144,6 +152,12 @@ export class SymptomComponent implements OnInit {
     var S_Desc = this.AddForm.get('Symp_Desc').value;
     var S_Type = this.AddForm.get('Symp_Type').value;
     var S_Dur = this.AddForm.get('Symp_Duration').value;
+    if (S_Desc==''||S_Dur==''||S_Type=='')
+    {
+      alert("Please fill in all the fields")
+    }
+    else
+    {
       this.nsymptom = {
         "Symp_Desc": S_Desc,
         "Symp_Type": S_Type,
@@ -156,6 +170,8 @@ export class SymptomComponent implements OnInit {
         )
         this.addAct=true;
         this.addistrue=false;
+    }
+      
     }
     removeSymptom(id){
       this.data.DeleteSymptoms(id).subscribe(res => {
@@ -177,6 +193,12 @@ export class SymptomComponent implements OnInit {
       var S_Desc = this.EditForm.get('Symp_Desc').value;
       var S_Type = this.EditForm.get('Symp_Type').value;
       var S_DUR = this.EditForm.get('Symp_Duration').value;
+      if (S_Desc==''||S_DUR==''||S_Type=='')
+    {
+      alert("Please fill in all the fields")
+    }
+    else
+    {
       console.log(S_ID)
       this.nsymptom = {
         "Symp_ID": S_ID,
@@ -188,7 +210,7 @@ export class SymptomComponent implements OnInit {
         this.rcv = res
         console.log(this.rcv)
         this.ngOnInit()
-      })
+      })}
     }
     cancelUC(){
       this.EditForm.reset();

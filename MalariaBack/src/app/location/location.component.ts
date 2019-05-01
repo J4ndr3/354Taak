@@ -60,6 +60,12 @@ export class LocationComponent implements OnInit {
   addLD(){
     var L_Name = this.AddFormLoc_des.get('Loc_Name').value;
     var D_Name = this.AddFormLoc_des.get('Dis_Name').value;
+    if (L_Name == '' || D_Name == '')
+    {
+      alert('Please fill in all the fields')
+    }
+    else
+    {
       this.nlocdes = {
         "Loc_ID": L_Name,
         "Des_ID": D_Name
@@ -71,6 +77,8 @@ export class LocationComponent implements OnInit {
         this.ngOnInit()}
         ) 
         this.addLDisTrue = false;
+    }
+      
   }
   removeLoc_Des(id){
     this.data.DeleteLoc_Des(id).subscribe(res => {
@@ -97,6 +105,12 @@ export class LocationComponent implements OnInit {
     var L_Name = this.EditFormLoc_des.get('Loc_Name').value;
     var D_Name = this.EditFormLoc_des.get('Dis_Name').value;
     console.log(L_D_id)
+    if (L_Name == '' || D_Name == '')
+    {
+      alert('Please fill in all the fields')
+    }
+    else
+    {
     this.nlocdes = {
       "Loc_Des_ID": L_D_id,
       "Loc_ID": L_Name,
@@ -109,6 +123,7 @@ export class LocationComponent implements OnInit {
       this.ngOnInit()
     })
     this.editLDisTrue= false;
+  }
   }
   cancelALD(){
     this.addLDisTrue=false;
@@ -130,6 +145,12 @@ export class LocationComponent implements OnInit {
   addLocation(){
     var L_Name = this.AddForm.get('Loc_Name').value;
     var L_Severity = this.AddForm.get('Loc_Severity').value;
+    if (L_Name == '' || L_Severity == '')
+    {
+      alert('Please fill in all the fields')
+    }
+    else
+    {
       this.nlocation = {
         "Loc_Name": L_Name,
         "Loc_Severity": L_Severity
@@ -141,6 +162,7 @@ export class LocationComponent implements OnInit {
         )
         this.addAct=true;
         this.addistrue=false;
+      }
     }
     removeLocation(id){
       this.data.DeleteLocations(id).subscribe(res => {
@@ -161,6 +183,12 @@ export class LocationComponent implements OnInit {
       var L_Name = this.EditForm.get('Loc_Name').value;
       var L_Severity = this.EditForm.get('Loc_Severity').value;
       console.log(L_id)
+      if (L_Name == '' || L_Severity == '')
+    {
+      alert('Please fill in all the fields')
+    }
+    else
+    {
       this.nlocation = {
         "Loc_ID": L_id,
         "Loc_Name": L_Name,
@@ -170,7 +198,7 @@ export class LocationComponent implements OnInit {
         this.rcv = res
         console.log(this.rcv)
         this.ngOnInit()
-      })
+      })}
     }
     cancelUC(){
       this.EditForm.reset();

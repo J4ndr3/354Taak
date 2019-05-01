@@ -49,6 +49,11 @@ addAct=true;
     addCause(){
   var C_des = this.AddForm.get('Cause_de').value;
   var D_id = this.AddForm.get('Dis_Name').value;
+  if (C_des == '' || D_id == '')
+  {
+    alert("Please fill in all the fields");
+  }
+  else{
     this.ncause = {
       "Cause_Desc": C_des,
       "Des_ID": D_id
@@ -60,6 +65,8 @@ addAct=true;
       )
       this.addAct=true;
       this.addistrue=false;
+  }
+    
   }
 removeCause(id){
   this.data.DeleteCaus(id).subscribe(res => {
@@ -88,6 +95,11 @@ updateCause(){
   var C_des = this.EditForm.get('Cause_de').value;
   var D_id = this.EditForm.get('Dis_Name').value;
   console.log(D_id)
+  if (C_des == '' || D_id == '')
+  {
+    alert("Please fill in all the fields");
+  }
+  else{
   this.ncause = {
     "Cause_ID": C_id,
     "Cause_Desc": C_des,
@@ -98,6 +110,7 @@ updateCause(){
     console.log(this.rcv)
     this.ngOnInit()
   })
+}
 }
 cancelUC(){
   this.EditForm.reset();

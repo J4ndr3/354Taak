@@ -43,6 +43,12 @@ export class DiseaseComponent implements OnInit {
       addDisease(){
     var D_name = this.AddForm.get('Des_Name').value;
     var D_Desc = this.AddForm.get('Des_Desc').value;
+    if (D_name ==''|| D_Desc == '')
+    {
+      alert("Please fill in all the fields")
+    }
+    else
+    {
       this.nDiseas = {
         "Des_Name": D_name,
         "Des_Desc": D_Desc
@@ -54,6 +60,8 @@ export class DiseaseComponent implements OnInit {
         )
         this.addAct=true;
         this.addistrue=false;
+    }
+     
     }
   removeDisease(id){
     if (Object.keys(this.Disease).length < 2 )

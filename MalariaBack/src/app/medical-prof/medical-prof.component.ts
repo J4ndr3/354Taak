@@ -70,10 +70,16 @@ export class MedicalProfComponent implements OnInit {
       }
     }
   removeDisease(id){
+    if (Object.keys(this.nMPs).length < 2 )
+    {
+      alert("There is only one disease left.  You cannot delete the only disease.")
+    }
+    else
+    {
     this.data.DeleteMP(id).subscribe(res => {
       this.rcv = res
       
-      this.ngOnInit()})
+      this.ngOnInit()})}
   }
   edit(MPID,MPN,MPS,MPE,MPP){
     this.EditForm = this.formBuilder.group({
@@ -91,6 +97,12 @@ export class MedicalProfComponent implements OnInit {
     var MP_Surname = this.EditForm.get('MP_Surname').value;
     var MP_Email = this.EditForm.get('MP_Email').value;
     var MP_Password = this.EditForm.get('MP_Password').value;
+    if (MP_Name== ''|| MP_Email ==''||MP_Password==''||MP_Surname=='')
+    {
+      alert("Please fill in all the fields")
+    }
+      else
+      {
     this.nMPs = {
       "MP_ID":MP_ID,
       "MP_Name": MP_Name,
@@ -102,7 +114,7 @@ export class MedicalProfComponent implements OnInit {
       this.rcv = res
       this.editistrue =false;
       this.ngOnInit()
-    })
+    })}
   }
   cancelUC(){
     this.EditForm.reset();

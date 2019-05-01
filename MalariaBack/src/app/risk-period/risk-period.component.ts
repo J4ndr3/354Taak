@@ -65,6 +65,11 @@ export class RiskPeriodComponent implements OnInit {
   addLD(){
     var L_Name = this.AddFormRP_Des.get('RiskP_Desc').value;
     var D_Name = this.AddFormRP_Des.get('Dis_Name').value;
+    if (L_Name==''||D_Name == '')
+    {
+      alert("Please fill in all the fields")
+    }
+    else{
       this.nSymDes = {
         "RiskP_ID": L_Name,
         "Des_ID": D_Name
@@ -76,6 +81,8 @@ export class RiskPeriodComponent implements OnInit {
         this.ngOnInit()}
         ) 
         this.addLDisTrue = false;
+    }
+      
   }
   removeLoc_Des(id){
     this.data.DeleteRP_Des(id).subscribe(res => {
@@ -101,19 +108,27 @@ export class RiskPeriodComponent implements OnInit {
     var L_D_id = this.EditFormRP_Des.get('RP_Des_ID').value;
     var L_Name = this.EditFormRP_Des.get('RiskP_Desc').value;
     var D_Name = this.EditFormRP_Des.get('Dis_Name').value;
-    console.log(L_D_id)
-    this.nSymDes = {
-      "RP_Des_ID": L_D_id,
-      "RiskP_ID": L_Name,
-      "Des_ID": D_Name
-  };
-  console.log(this.nSymDes)
-    this.data.PutSymp_Des(L_D_id,this.nSymDes).subscribe(res => {
-      this.rcv = res
-      console.log(this.rcv)
-      this.ngOnInit()
-    })
-    this.editLDisTrue= false;
+    if (L_Name==''||D_Name=='')
+    {
+      alert("Please fill in all the fields")
+    }
+    else
+    {
+      console.log(L_D_id)
+      this.nSymDes = {
+        "RP_Des_ID": L_D_id,
+        "RiskP_ID": L_Name,
+        "Des_ID": D_Name
+    };
+    console.log(this.nSymDes)
+      this.data.PutSymp_Des(L_D_id,this.nSymDes).subscribe(res => {
+        this.rcv = res
+        console.log(this.rcv)
+        this.ngOnInit()
+      })
+      this.editLDisTrue= false;
+    }
+    
   }
   cancelALD(){
     this.addLDisTrue=false;
@@ -134,6 +149,12 @@ export class RiskPeriodComponent implements OnInit {
   addRiskPeriods(){
     var RP_des = this.AddForm.get('RiskP_Desc').value;
      var RP_type = this.AddForm.get('RiskP_Type').value;
+     if (RP_des==''||RP_type=='')
+     {
+       alert("Please enter all values")
+     }
+     else
+     {
       this.nRiskPeriod = {
         "RiskP_Desc": RP_des,
         "RiskP_Type": RP_type
@@ -145,6 +166,8 @@ export class RiskPeriodComponent implements OnInit {
       )
       this.addAct=true;
       this.addistrue=false;
+     }
+      
   }
   removeRiskPeriod(id){
     this.data.DeleteRiskPeriod(id).subscribe(res => {
@@ -170,19 +193,25 @@ export class RiskPeriodComponent implements OnInit {
     var RP_id = this.EditForm.get('RiskP_ID').value;
     var RP_des = this.EditForm.get('RiskP_Desc').value;
     var RP_type = this.EditForm.get('RiskP_Type').value;
+    if (RP_des==''||RP_type=='')
+    {
+      alert("Please enter all values")
+    }
+    else
+    {
+      this.nRiskPeriod = {
+        "RiskP_ID": RP_id,
+        "RiskP_Desc": RP_des,
+        "RiskP_Type": RP_type
+        
+    };
+      this.data.PutRiskPeriod(RP_id,this.nRiskPeriod).subscribe(res => {
+        this.rcv = res
+        console.log(this.rcv)
+        this.ngOnInit()
+      })
+    }
     
-    
-    this.nRiskPeriod = {
-      "RiskP_ID": RP_id,
-      "RiskP_Desc": RP_des,
-      "RiskP_Type": RP_type
-      
-  };
-    this.data.PutRiskPeriod(RP_id,this.nRiskPeriod).subscribe(res => {
-      this.rcv = res
-      console.log(this.rcv)
-      this.ngOnInit()
-    })
   }
   cancelUC(){
     this.EditForm.reset();

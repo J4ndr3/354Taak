@@ -52,6 +52,12 @@ export class PreventionComponent implements OnInit {
   var P_des = this.AddForm.get('Prev_Desc').value;
    var P_type = this.AddForm.get('Prev_Type').value;
   var D_id = this.AddForm.get('Dis_Name').value;
+  if (P_des =='' || P_type == '' || D_id == '')
+  {
+    alert("Please enter all the fields")
+  }
+  else
+  {
     this.nprevention = {
       "Prev_Desc": P_des,
       "Prev_Type": P_type,
@@ -64,6 +70,8 @@ export class PreventionComponent implements OnInit {
       )
       this.addAct=true;
       this.addistrue=false;
+  }
+    
   }
 removePrevention(id){
   this.data.DeletePrevention(id).subscribe(res => {
@@ -90,17 +98,25 @@ updatePrevention(){
   var P_type = this.EditForm.get('Prev_Type').value;
   var D_id = this.EditForm.get('Dis_Name').value;
   console.log(D_id)
-  this.nprevention = {
-    "Prev_ID": P_id,
-    "Prev_Desc": P_des,
-    "Prev_Type": P_type,
-    "Des_ID": D_id
-};
-  this.data.PutPrevention(P_id,this.nprevention).subscribe(res => {
-    this.rcv = res
-    console.log(this.rcv)
-    this.ngOnInit()
-  })
+  if (P_des == ''||P_type==''||D_id=='')
+  {
+    alert("Please fill in all the fields")
+  }
+  else
+  {
+    this.nprevention = {
+      "Prev_ID": P_id,
+      "Prev_Desc": P_des,
+      "Prev_Type": P_type,
+      "Des_ID": D_id
+  };
+    this.data.PutPrevention(P_id,this.nprevention).subscribe(res => {
+      this.rcv = res
+      console.log(this.rcv)
+      this.ngOnInit()
+    })
+  }
+ 
 }
 cancelUC(){
   this.EditForm.reset();

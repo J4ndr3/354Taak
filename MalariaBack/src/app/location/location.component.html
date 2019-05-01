@@ -27,11 +27,11 @@
     </label>
     <label>
       Location Name:
-      <input type="text" formControlName="Loc_Name">
+      <input type="text" formControlName="Loc_Name" maxlength="50">
     </label>
     <label>
       Severity:
-      <input type="text" formControlName="Loc_Severity">
+      <input type="text" formControlName="Loc_Severity" maxlength="500">
     </label>
   <br>
   <br>
@@ -46,11 +46,11 @@
   <form [formGroup]="AddForm" (ngSubmit)="addLocation()">
     <label>
       Location Name:
-      <input type="text" formControlName="Loc_Name">
+      <input type="text" formControlName="Loc_Name" maxlength="50">
     </label>
     <label>
       Location Severity:
-      <input type="text" formControlName="Loc_Severity">
+      <input type="text" formControlName="Loc_Severity" maxlength="500">
     </label>
   <br>
   <br>
