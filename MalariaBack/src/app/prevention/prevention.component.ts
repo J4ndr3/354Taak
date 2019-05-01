@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MalariaService } from '../malaria.service';
-import { FormBuilder,FormGroup } from '@angular/forms';
+import { FormBuilder,FormGroup, MaxLengthValidator } from '@angular/forms';
 import {IsLoggedinService} from '../is-loggedin.service';
 
 @Component({
@@ -40,7 +40,7 @@ export class PreventionComponent implements OnInit {
     this.AddForm = this.formBuilder.group({
       Prev_ID: [""],
       Prev_Desc: [""],
-      Prev_Type: [""],
+      Prev_Type: ["",MaxLengthValidator],
       Dis_Name:[""]
     });
     this.data.GetDisease().subscribe( (res) => {
@@ -79,7 +79,7 @@ edit(PID,PD,PT,DID){
   this.EditForm = this.formBuilder.group({
     Prev_ID: [PID],
     Prev_Desc: [PD],
-    Prev_Type:[PT],
+    Prev_Type:[PT,MaxLengthValidator],
     Dis_Name: [DID]
   });
   this.editistrue =true;

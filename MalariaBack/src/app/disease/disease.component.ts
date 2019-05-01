@@ -56,10 +56,18 @@ export class DiseaseComponent implements OnInit {
         this.addistrue=false;
     }
   removeDisease(id){
-    this.data.DeleteDisease(id).subscribe(res => {
-      this.rcv = res
-      console.log(this.rcv)
-      this.ngOnInit()})
+    if (Object.keys(this.Disease).length < 2 )
+    {
+      alert("There is only one disease left.  You cannot delete the only disease.")
+    }
+    else
+    {
+      this.data.DeleteDisease(id).subscribe(res => {
+        this.rcv = res
+        console.log(this.rcv)
+        this.ngOnInit()})
+    }
+   
   }
   edit(CID,CD,DID){
     this.EditForm = this.formBuilder.group({

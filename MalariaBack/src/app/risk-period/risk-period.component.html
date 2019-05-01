@@ -27,11 +27,11 @@
     </label>
     <label>
       Risk Period Description:
-      <input type="text" formControlName="RiskP_Desc">
+      <input type="text" formControlName="RiskP_Desc" required>
     </label>
     <label>
       Risk Period Type:
-      <input type="text" formControlName="RiskP_Type">
+      <input type="text" formControlName="RiskP_Type" required maxlength="50">
     </label>
     
   <br>
@@ -47,11 +47,11 @@
   <form [formGroup]="AddForm" (ngSubmit)="addRiskPeriods()">
     <label>
       Risk Period Description:
-      <input type="text" formControlName="RiskP_Desc">
+      <input type="text" formControlName="RiskP_Desc" required>
     </label>
     <label>
       Risk Period Type:
-      <input type="text" formControlName="RiskP_Type">
+      <input type="text" formControlName="RiskP_Type" required maxlength="50">
     </label>
   <br>
   <br>

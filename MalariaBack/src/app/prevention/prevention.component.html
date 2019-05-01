@@ -13,7 +13,7 @@
     <td>{{prev.Prev_Desc}}</td>
     <td>{{prev.Prev_Type}}</td>
     <td>{{prev.Des_Name}}</td>
-    <td><button (click)="removeCause(prev.Prev_ID)"  class="cta">Remove</button></td>
+    <td><button (click)="removePrevention(prev.Prev_ID)"  class="cta">Remove</button></td>
     <td><button (click)="edit(prev.Prev_ID,prev.Prev_Desc,prev.Prev_Type,prev.Des_ID)"  class="cta">Edit</button></td>
   </tr>
 </table>
@@ -29,11 +29,11 @@
     </label>
     <label>
       Prevention Description:
-      <input type="text" formControlName="Prev_Desc">
+      <input type="text" formControlName="Prev_Desc" required>
     </label>
     <label>
       Prevention Type:
-      <input type="text" formControlName="Prev_Type">
+      <input type="text" formControlName="Prev_Type" maxlength="50">
     </label>
     <label>
       Disease Name:
@@ -55,11 +55,11 @@
   <form [formGroup]="AddForm" (ngSubmit)="addPrevention()">
     <label>
       Prevention Description:
-      <input type="text" formControlName="Prev_Desc">
+      <input type="text" formControlName="Prev_Desc" required>
     </label>
     <label>
       Prevention Type:
-      <input type="text" formControlName="Prev_Type">
+      <input type="text" formControlName="Prev_Type" maxlength="50">
     </label>
     <label>
       Disease Name:

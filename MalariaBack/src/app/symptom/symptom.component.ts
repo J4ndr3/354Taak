@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MalariaService } from '../malaria.service';
-import { FormBuilder,FormGroup } from '@angular/forms';
+import { FormBuilder,FormGroup, MaxLengthValidator } from '@angular/forms';
 import {IsLoggedinService} from '../is-loggedin.service';
+import { platformCoreDynamicTesting } from '@angular/platform-browser-dynamic/testing/src/platform_core_dynamic_testing';
 
 @Component({
   selector: 'app-symptom',
@@ -64,6 +65,11 @@ export class SymptomComponent implements OnInit {
   addLD(){
     var L_Name = this.AddFormSymp_Des.get('Symp_Desc').value;
     var D_Name = this.AddFormSymp_Des.get('Dis_Name').value;
+    if(L_Name == '' || D_Name == ''){
+      alert("Please select details to add");
+      console.log("Loc_ID",L_Name,"Des_ID",D_Name)
+    }
+    else{
       this.nSymDes = {
         "Symp_ID": L_Name,
         "Des_ID": D_Name
@@ -75,6 +81,8 @@ export class SymptomComponent implements OnInit {
         this.ngOnInit()}
         ) 
         this.addLDisTrue = false;
+    }
+      
   }
   removeLoc_Des(id){
     this.data.DeleteSymp_Des(id).subscribe(res => {
@@ -127,8 +135,8 @@ export class SymptomComponent implements OnInit {
   addSymptom1(){
     this.AddForm = this.formBuilder.group({
       Symp_Desc: [""],
-      Symp_Type: [""],
-      Symp_Duration:[""]
+      Symp_Type: ["",MaxLengthValidator],
+      Symp_Duration:["",MaxLengthValidator]
     });
     this.addistrue=true;
   this.addAct=false}

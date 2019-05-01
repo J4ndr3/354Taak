@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MalariaService } from '../malaria.service';
-import { FormBuilder,FormGroup } from '@angular/forms';
+import { FormBuilder,FormGroup, RequiredValidator } from '@angular/forms';
 import {IsLoggedinService} from '../is-loggedin.service'
 
 @Component({
@@ -36,10 +36,10 @@ export class MedicalProfComponent implements OnInit {
     }
     addDisease1(){
       this.AddForm = this.formBuilder.group({
-        MP_Name: [""],
-        MP_Surname: [""],
-        MP_Email:[""],
-        MP_Password:["'"]
+        MP_Name: ["",RequiredValidator],
+        MP_Surname: ["",RequiredValidator],
+        MP_Email:["",RequiredValidator],
+        MP_Password:["",RequiredValidator]
       });
       this.addistrue=true;
     this.addAct=false}
@@ -47,20 +47,27 @@ export class MedicalProfComponent implements OnInit {
     var MP_Name = this.AddForm.get('MP_Name').value;
     var MP_Surname = this.AddForm.get('MP_Surname').value;
     var MP_Email = this.AddForm.get('MP_Name').value;
-    var MP_Password = this.AddForm.get('MP_Surname').value;
-      this.nMPs = {
-        "MP_Name": MP_Name,
-        "MP_Surname": MP_Surname,
-        "MP_Email":MP_Email,
-        "MP_Password":MP_Password
-    };
-      this.data.PostMP(this.nMPs).subscribe(res => {
-        this.rca = res
-        
-        this.ngOnInit()}
-        )
-        this.addAct=true;
-        this.addistrue=false;
+    var MP_Password = this.AddForm.get('MP_Password').value;
+    if (MP_Name== ''|| MP_Email ==''||MP_Password==''||MP_Surname=='')
+    {
+      alert("Please fill in all the fields")
+    }
+      else
+      {
+        this.nMPs = {
+          "MP_Name": MP_Name,
+          "MP_Surname": MP_Surname,
+          "MP_Email":MP_Email,
+          "MP_Password":MP_Password
+      };
+        this.data.PostMP(this.nMPs).subscribe(res => {
+          this.rca = res
+          
+          this.ngOnInit()}
+          )
+          this.addAct=true;
+          this.addistrue=false;
+      }
     }
   removeDisease(id){
     this.data.DeleteMP(id).subscribe(res => {

@@ -5,7 +5,6 @@
     <th>Name</th>
     <th>Surname</th>
     <th>Email</th>
-    <th>Password</th>
     <th>Remove</th>
     <th>Edit</th>
   </tr>
@@ -14,7 +13,6 @@
     <td>{{Dis.MP_Name}}</td>
     <td>{{Dis.MP_Surname}}</td>
     <td>{{Dis.MP_Email}}</td>
-    <td>{{Dis.MP_Password}}</td>
     <td><button (click)="removeDisease(Dis.MP_ID)" class="cta">Remove</button></td>
     <td><button (click)="edit(Dis.MP_ID,Dis.MP_Name,Dis.MP_Surname,Dis.MP_Email,Dis.MP_Password)"
         class="cta">Edit</button></td>
@@ -32,19 +30,19 @@
     </label>
     <label>
       Name:
-      <input type="text" formControlName="MP_Name">
+      <input type="text" formControlName="MP_Name" required maxlength="50">
     </label>
     <label>
       Surname:
-      <input type="text" formControlName="MP_Surname">
+      <input type="text" formControlName="MP_Surname" required maxlength="50">
     </label>
     <label>
       Email:
-      <input type="text" formControlName="MP_Email">
+      <input type="text" formControlName="MP_Email" required maxlength="50">
     </label>
     <label>
       Password:
-      <input type="text" formControlName="MP_Password">
+      <input type="password" formControlName="MP_Password"required maxlength="20">
     </label>
     <br>
     <br>
@@ -59,19 +57,19 @@
   <form [formGroup]="AddForm" (ngSubmit)="addDisease()">
       <label>
           Name:
-          <input type="text" formControlName="MP_Name">
+          <input type="text" formControlName="MP_Name" required maxlength="50">
         </label>
         <label>
           Surname:
-          <input type="text" formControlName="MP_Surname">
+          <input type="text" formControlName="MP_Surname" required maxlength="50">
         </label>
         <label>
           Email:
-          <input type="text" formControlName="MP_Email">
+          <input type="text" formControlName="MP_Email" required maxlength="50">
         </label>
         <label>
           Password:
-          <input type="text" formControlName="MP_Password">
+          <input type="password" formControlName="MP_Password" required maxlength="20">
         </label>
     <br>
     <br>
