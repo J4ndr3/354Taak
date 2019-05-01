@@ -1,8 +1,9 @@
+<h1>Causes</h1>
 <table>
   <tr>
     <th>ID</th>
     <th>Description</th>
-    <th>Desease Name</th>
+    <th>Disease Name</th>
     <th>Remove</th>
     <th>Edit</th>
   </tr>
@@ -22,7 +23,7 @@
   <form [formGroup]="EditForm" (ngSubmit)="updateCause()">
     <label>
       Cause ID:
-      <input type="text" formControlName="Cause_I">
+      <input type="text" formControlName="Cause_I" disabled>
     </label>
     <label>
       Cause Description:

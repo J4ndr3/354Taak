@@ -25,7 +25,7 @@
   <form [formGroup]="EditForm" (ngSubmit)="updateSymptom()">
     <label>
       Symptom ID:
-      <input type="text" formControlName="Symp_ID">
+      <input type="text" formControlName="Symp_ID" disabled>
     </label>
     <label>
       Symptom Name:
@@ -71,7 +71,7 @@
   </form>
 </div>
 
-<h1>Symptom and diseas links</h1>
+<h1>Symptom and Disease links</h1>
 <table>
   <tr>
     <th>ID</th>
@@ -88,7 +88,7 @@
     <td><button (click)="editloc_des(loc_des.Symp_Des_ID,loc_des.Symp_ID,loc_des.Des_ID)"  class="cta">Edit</button></td>
   </tr>
 </table>
-<button (click)="addLoc_des()" *ngIf="addAct" class="cta">Click to add new Location and Disease link</button>
+<button (click)="addLoc_des()" *ngIf="addAct" class="cta">Click to add new Symptom and Disease link</button>
 
 <div *ngIf="addLDisTrue">
   <form [formGroup]="AddFormSymp_Des" (ngSubmit)="addLD()">
@@ -119,7 +119,7 @@
   <form [formGroup]="EditFormSymp_Des" (ngSubmit)="updateLoc_Des()">
     <label>
       Location Disease ID:
-      <input type="text" formControlName="Symp_Des_ID">
+      <input type="text" formControlName="Symp_Des_ID" disabled>
     </label>
     <label>
       Symptom Description:

@@ -1,3 +1,4 @@
+<h1>Risk Periods</h1>
 <table>
   <tr>
     <th>ID</th>
@@ -22,7 +23,7 @@
   <form [formGroup]="EditForm" (ngSubmit)="updateRiskPeriod()">
     <label>
       Risk Period ID:
-      <input type="text" formControlName="RiskP_ID">
+      <input type="text" formControlName="RiskP_ID" disabled>
     </label>
     <label>
       Risk Period Description:
@@ -61,11 +62,11 @@
   </form>
 </div>
 
-<h1>Symptom and diseas links</h1>
+<h1>Risk period and Disease links</h1>
 <table>
   <tr>
     <th>ID</th>
-    <th>Symptom Name</th>
+    <th>Risk Period</th>
     <th>Disease</th>
     <th>Remove</th>
     <th>Edit</th>
@@ -78,7 +79,7 @@
     <td><button (click)="editloc_des(loc_des.RP_Des_ID,loc_des.RiskP_ID,loc_des.Des_ID)"  class="cta">Edit</button></td>
   </tr>
 </table>
-<button (click)="addLoc_des()" *ngIf="addAct" class="cta">Click to add new Location and Disease link</button>
+<button (click)="addLoc_des()" *ngIf="addAct" class="cta">Click to add new Risk period and Disease link</button>
 
 <div *ngIf="addLDisTrue">
   <form [formGroup]="AddFormRP_Des" (ngSubmit)="addLD()">
@@ -109,7 +110,7 @@
   <form [formGroup]="EditFormRP_Des" (ngSubmit)="updateLoc_Des()">
     <label>
       Risk Period Disease ID:
-      <input type="text" formControlName="RP_Des_ID">
+      <input type="text" formControlName="RP_Des_ID" disabled>
     </label>
     <label>
       Risk Period Description:

@@ -1,9 +1,10 @@
+<h1>Preventions</h1>
 <table>
   <tr>
     <th>ID</th>
     <th>Description</th>
     <th>Type</th>
-    <th>Desease Name</th>
+    <th>Disease Name</th>
     <th>Remove</th>
     <th>Edit</th>
   </tr>
@@ -24,7 +25,7 @@
   <form [formGroup]="EditForm" (ngSubmit)="updatePrevention()">
     <label>
       Prevention ID:
-      <input type="text" formControlName="Prev_ID">
+      <input type="text" formControlName="Prev_ID" disabled>
     </label>
     <label>
       Prevention Description:

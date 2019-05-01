@@ -1,3 +1,4 @@
+<h1>Treatments</h1>
 <table>
   <tr>
     <th>ID</th>
@@ -24,7 +25,7 @@
   <form [formGroup]="EditForm" (ngSubmit)="updateTreatment()">
     <label>
       Treatment ID:
-      <input type="text" formControlName="Treat_ID">
+      <input type="text" formControlName="Treat_ID" disabled>
     </label>
     <label>
       Treatment Description:
