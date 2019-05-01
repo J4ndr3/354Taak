@@ -78,7 +78,6 @@ export class MedicalProfComponent implements OnInit {
     {
     this.data.DeleteMP(id).subscribe(res => {
       this.rcv = res
-      
       this.ngOnInit()})}
   }
   edit(MPID,MPN,MPS,MPE,MPP){
