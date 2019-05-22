@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar style="color:red">
+    <ion-title>
+      Treatment
+    </ion-title>
+    <ion-img src="/assets/mozzi.png" style="width:50px;float:right"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div *ngFor="let tp of type">
+    <ion-header style="margin:auto; font-size: 20px; color:red">
+      <b>
+        {{tp}}
+      </b>
+    </ion-header>
+    <ion-list>
+      <div *ngFor="let treat of treatment">
+        <ion-item *ngIf="treat.Treat_Type ==tp">
+          <ion-text text-wrap>
+            {{treat.Treat_Desc}}
+          </ion-text>
+        </ion-item>
+
+      </div>
+    </ion-list>
+
+  </div>
+</ion-content>

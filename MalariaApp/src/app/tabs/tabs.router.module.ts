@@ -57,6 +57,15 @@ const routes: Routes = [
         ]
       },
       {
+        path: 'tab6',
+        children: [
+          {
+            path: '',
+            loadChildren: '../tab6/tab6.module#Tab6PageModule'
+          }
+        ]
+      },
+      {
         path: '',
         redirectTo: '/tabs/tab1',
         pathMatch: 'full'
