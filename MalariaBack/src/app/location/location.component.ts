@@ -138,13 +138,21 @@ export class LocationComponent implements OnInit {
     this.AddForm = this.formBuilder.group({
       Loc_ID: [""],
       Loc_Name: [""],
-      Loc_Severity: [""]
+      Loc_Severity: [""],
+      S_Lvl:[""],
+      Lat:[""],
+      Lng:[""],
+      Rad:[""]
     });
     this.addistrue=true;
   this.addAct=false}
   addLocation(){
     var L_Name = this.AddForm.get('Loc_Name').value;
     var L_Severity = this.AddForm.get('Loc_Severity').value;
+    var S_Lvl = this.AddForm.get('S_Lvl').value;
+    var Lat =this.AddForm.get('Lat').value;
+    var Lng=this.AddForm.get('Lng').value;
+    var Rad=this.AddForm.get('Rad').value;
     if (L_Name == '' || L_Severity == '')
     {
       alert('Please fill in all the fields')
@@ -153,7 +161,11 @@ export class LocationComponent implements OnInit {
     {
       this.nlocation = {
         "Loc_Name": L_Name,
-        "Loc_Severity": L_Severity
+        "Loc_Severity": L_Severity,
+        "Sev_Lvl":S_Lvl,
+        "Lat":Lat,
+        "Lng":Lng,
+        "Raduis":Rad
     };
       this.data.PostLocations(this.nlocation).subscribe(res => {
         this.rca = res
@@ -170,11 +182,15 @@ export class LocationComponent implements OnInit {
         console.log(this.rcv)
         this.ngOnInit()})
     }
-    edit(LID,LN,LS){
+    edit(LID,LN,LS,S,La,Ln,R){
       this.EditForm = this.formBuilder.group({
         Loc_ID: [LID],
         Loc_Name: [LN],
         Loc_Severity:[LS],
+        S_Lvl:[S],
+      Lat:[La],
+      Lng:[Ln],
+      Rad:[R]
       });
       this.editistrue =true;
     }
@@ -182,6 +198,10 @@ export class LocationComponent implements OnInit {
       var L_id = this.EditForm.get('Loc_ID').value;
       var L_Name = this.EditForm.get('Loc_Name').value;
       var L_Severity = this.EditForm.get('Loc_Severity').value;
+      var S_Lvl = this.EditForm.get('S_Lvl').value;
+      var Lat =this.EditForm.get('Lat').value;
+      var Lng=this.EditForm.get('Lng').value;
+      var Rad=this.EditForm.get('Rad').value;
       console.log(L_id)
       if (L_Name == '' || L_Severity == '')
     {
@@ -192,7 +212,11 @@ export class LocationComponent implements OnInit {
       this.nlocation = {
         "Loc_ID": L_id,
         "Loc_Name": L_Name,
-        "Loc_Severity": L_Severity
+        "Loc_Severity": L_Severity,
+        "Sev_Lvl":S_Lvl,
+        "Lat":Lat,
+        "Lng":Lng,
+        "Raduis":Rad
     };
       this.data.PutLocations(L_id,this.nlocation).subscribe(res => {
         this.rcv = res

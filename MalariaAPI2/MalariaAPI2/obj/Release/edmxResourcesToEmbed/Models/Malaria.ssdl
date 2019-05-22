@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Malaria_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Causes">
+    <Key>
+      <PropertyRef Name="Cause_ID" />
+    </Key>
+    <Property Name="Cause_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cause_Desc" Type="text" Nullable="false" />
+    <Property Name="Des_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Desease">
+    <Key>
+      <PropertyRef Name="Des_ID" />
+    </Key>
+    <Property Name="Des_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Des_Desc" Type="text" Nullable="false" />
+    <Property Name="Des_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Loc_Des">
+    <Key>
+      <PropertyRef Name="Loc_Des_ID" />
+    </Key>
+    <Property Name="Des_ID" Type="int" />
+    <Property Name="Loc_ID" Type="int" />
+    <Property Name="Loc_Des_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="Loc_ID" />
+    </Key>
+    <Property Name="Loc_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Loc_Severity" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="Loc_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Medical_Proffesionals">
+    <Key>
+      <PropertyRef Name="MP_ID" />
+    </Key>
+    <Property Name="MP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MP_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MP_Surname" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MP_Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MP_Password" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="GUID" Type="uniqueidentifier" />
+    <Property Name="GUIDExp" Type="datetime2" Precision="7" />
+  </EntityType>
+  <EntityType Name="Notifications">
+    <Key>
+      <PropertyRef Name="Note_ID" />
+    </Key>
+    <Property Name="Note_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Note_Desc" Type="text" Nullable="false" />
+    <Property Name="Note_Date" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="MP_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Prevention">
+    <Key>
+      <PropertyRef Name="Prev_ID" />
+    </Key>
+    <Property Name="Prev_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Prev_Desc" Type="text" Nullable="false" />
+    <Property Name="Prev_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Des_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="Risk_Period">
+    <Key>
+      <PropertyRef Name="RiskP_ID" />
+    </Key>
+    <Property Name="RiskP_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RiskP_Desc" Type="text" Nullable="false" />
+    <Property Name="RiskP_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RP_Des">
+    <Key>
+      <PropertyRef Name="RP_Des_ID" />
+    </Key>
+    <Property Name="Des_ID" Type="int" />
+    <Property Name="RiskP_ID" Type="int" />
+    <Property Name="RP_Des_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Symp_Des">
+    <Key>
+      <PropertyRef Name="Symp_Des_ID" />
+    </Key>
+    <Property Name="Des_ID" Type="int" />
+    <Property Name="Symp_ID" Type="int" />
+    <Property Name="Symp_Des_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Symptoms">
+    <Key>
+      <PropertyRef Name="Symp_ID" />
+    </Key>
+    <Property Name="Symp_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Symp_Desc" Type="text" Nullable="false" />
+    <Property Name="Symp_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Symp_Duration" Type="nvarchar" MaxLength="300" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Treatment">
+    <Key>
+      <PropertyRef Name="Treat_ID" />
+    </Key>
+    <Property Name="Treat_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Treat_Desc" Type="text" Nullable="false" />
+    <Property Name="Treat_Type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Des_ID" Type="int" />
+  </EntityType>
+  <Association Name="FK__Causes__Des_ID__1A14E395">
+    <End Role="Desease" Type="Self.Desease" Multiplicity="0..1" />
+    <End Role="Causes" Type="Self.Causes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Desease">
+        <PropertyRef Name="Des_ID" />
+      </Principal>
+      <Dependent Role="Causes">
+        <PropertyRef Name="Des_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Loc_Des__Des_ID__24927208">
+    <End Role="Desease" Type="Self.Desease" Multiplicity="0..1" />
+    <End Role="Loc_Des" Type="Self.Loc_Des" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Desease">
+        <PropertyRef Name="Des_ID" />
+      </Principal>
+      <Dependent Role="Loc_Des">
+        <PropertyRef Name="Des_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Loc_Des__Loc_ID__25869641">
+    <End Role="Location" Type="Self.Location" Multiplicity="0..1" />
+    <End Role="Loc_Des" Type="Self.Loc_Des" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Location">
+        <PropertyRef Name="Loc_ID" />
+      </Principal>
+      <Dependent Role="Loc_Des">
+        <PropertyRef Name="Loc_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notificat__MP_ID__22AA2996">
+    <End Role="Medical_Proffesionals" Type="Self.Medical_Proffesionals" Multiplicity="0..1" />
+    <End Role="Notifications" Type="Self.Notifications" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medical_Proffesionals">
+        <PropertyRef Name="MP_ID" />
+      </Principal>
+      <Dependent Role="Notifications">
+        <PropertyRef Name="MP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Preventio__Des_I__145C0A3F">
+    <End Role="Desease" Type="Self.Desease" Multiplicity="0..1" />
+    <End Role="Prevention" Type="Self.Prevention" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Desease">
+        <PropertyRef Name="Des_ID" />
+      </Principal>
+      <Dependent Role="Prevention">
+        <PropertyRef Name="Des_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RP_Des__Des_ID__2A4B4B5E">
+    <End Role="Desease" Type="Self.Desease" Multiplicity="0..1" />
+    <End Role="RP_Des" Type="Self.RP_Des" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Desease">
+        <PropertyRef Name="Des_ID" />
+      </Principal>
+      <Dependent Role="RP_Des">
+        <PropertyRef Name="Des_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RP_Des__RiskP_ID__2B3F6F97">
+    <End Role="Risk_Period" Type="Self.Risk_Period" Multiplicity="0..1" />
+    <End Role="RP_Des" Type="Self.RP_Des" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Risk_Period">
+        <PropertyRef Name="RiskP_ID" />
+      </Principal>
+      <Dependent Role="RP_Des">
+        <PropertyRef Name="RiskP_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Symp_Des__Des_ID__276EDEB3">
+    <End Role="Desease" Type="Self.Desease" Multiplicity="0..1" />
+    <End Role="Symp_Des" Type="Self.Symp_Des" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Desease">
+        <PropertyRef Name="Des_ID" />
+      </Principal>
+      <Dependent Role="Symp_Des">
+        <PropertyRef Name="Des_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Symp_Des__Symp_I__286302EC">
+    <End Role="Symptoms" Type="Self.Symptoms" Multiplicity="0..1" />
+    <End Role="Symp_Des" Type="Self.Symp_Des" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Symptoms">
+        <PropertyRef Name="Symp_ID" />
+      </Principal>
+      <Dependent Role="Symp_Des">
+        <PropertyRef Name="Symp_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Treatment__Des_I__173876EA">
+    <End Role="Desease" Type="Self.Desease" Multiplicity="0..1" />
+    <End Role="Treatment" Type="Self.Treatment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Desease">
+        <PropertyRef Name="Des_ID" />
+      </Principal>
+      <Dependent Role="Treatment">
+        <PropertyRef Name="Des_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Malaria_DBModelStoreContainer">
+    <EntitySet Name="Causes" EntityType="Self.Causes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Desease" EntityType="Self.Desease" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Loc_Des" EntityType="Self.Loc_Des" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Location" EntityType="Self.Location" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medical_Proffesionals" EntityType="Self.Medical_Proffesionals" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notifications" EntityType="Self.Notifications" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prevention" EntityType="Self.Prevention" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Risk_Period" EntityType="Self.Risk_Period" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RP_Des" EntityType="Self.RP_Des" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Symp_Des" EntityType="Self.Symp_Des" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Symptoms" EntityType="Self.Symptoms" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Treatment" EntityType="Self.Treatment" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Causes__Des_ID__1A14E395" Association="Self.FK__Causes__Des_ID__1A14E395">
+      <End Role="Desease" EntitySet="Desease" />
+      <End Role="Causes" EntitySet="Causes" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Loc_Des__Des_ID__24927208" Association="Self.FK__Loc_Des__Des_ID__24927208">
+      <End Role="Desease" EntitySet="Desease" />
+      <End Role="Loc_Des" EntitySet="Loc_Des" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Loc_Des__Loc_ID__25869641" Association="Self.FK__Loc_Des__Loc_ID__25869641">
+      <End Role="Location" EntitySet="Location" />
+      <End Role="Loc_Des" EntitySet="Loc_Des" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notificat__MP_ID__22AA2996" Association="Self.FK__Notificat__MP_ID__22AA2996">
+      <End Role="Medical_Proffesionals" EntitySet="Medical_Proffesionals" />
+      <End Role="Notifications" EntitySet="Notifications" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Preventio__Des_I__145C0A3F" Association="Self.FK__Preventio__Des_I__145C0A3F">
+      <End Role="Desease" EntitySet="Desease" />
+      <End Role="Prevention" EntitySet="Prevention" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RP_Des__Des_ID__2A4B4B5E" Association="Self.FK__RP_Des__Des_ID__2A4B4B5E">
+      <End Role="Desease" EntitySet="Desease" />
+      <End Role="RP_Des" EntitySet="RP_Des" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RP_Des__RiskP_ID__2B3F6F97" Association="Self.FK__RP_Des__RiskP_ID__2B3F6F97">
+      <End Role="Risk_Period" EntitySet="Risk_Period" />
+      <End Role="RP_Des" EntitySet="RP_Des" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Symp_Des__Des_ID__276EDEB3" Association="Self.FK__Symp_Des__Des_ID__276EDEB3">
+      <End Role="Desease" EntitySet="Desease" />
+      <End Role="Symp_Des" EntitySet="Symp_Des" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Symp_Des__Symp_I__286302EC" Association="Self.FK__Symp_Des__Symp_I__286302EC">
+      <End Role="Symptoms" EntitySet="Symptoms" />
+      <End Role="Symp_Des" EntitySet="Symp_Des" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Treatment__Des_I__173876EA" Association="Self.FK__Treatment__Des_I__173876EA">
+      <End Role="Desease" EntitySet="Desease" />
+      <End Role="Treatment" EntitySet="Treatment" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

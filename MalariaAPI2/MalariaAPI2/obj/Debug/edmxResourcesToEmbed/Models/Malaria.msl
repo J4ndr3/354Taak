@@ -22,6 +22,10 @@
     <EntitySetMapping Name="Locations">
       <EntityTypeMapping TypeName="Malaria_DBModel.Location">
         <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="Raduis" ColumnName="Raduis" />
+          <ScalarProperty Name="Lng" ColumnName="Lng" />
+          <ScalarProperty Name="Lat" ColumnName="Lat" />
+          <ScalarProperty Name="Sev_Lvl" ColumnName="Sev_Lvl" />
           <ScalarProperty Name="Loc_ID" ColumnName="Loc_ID" />
           <ScalarProperty Name="Loc_Severity" ColumnName="Loc_Severity" />
           <ScalarProperty Name="Loc_Name" ColumnName="Loc_Name" />
