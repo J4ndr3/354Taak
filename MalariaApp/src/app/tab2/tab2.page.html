@@ -1,9 +1,23 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Tab Two
+  <ion-toolbar style="color:red">
+<ion-title style="font-size: 20px">
+      Symptoms
     </ion-title>
+ion-img src="/assets/mozzi.png" style="width:50px;float: right;"></ion-img>
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <div *ngFor="let Type1 of Type">
+    <ion-header style="margin: auto; font-size: 18px; color: red"><b>{{Type1}}</b></ion-header>
+        <br>
+        <ion-list>
+    <div *ngFor="let symp of Symptoms">
+              <ion-item *ngIf="symp.Symp_Type ==Type1">
+                  <ion-text  text-wrap><b>{{symp.Symp_Desc}}</b> <br>Duration: {{symp.Symp_Duration}} </ion-text>
+                </ion-item>
+          </div>
+        </ion-list>
+      </div>
+</ion-content>
+<ion-button expand="full" class="your-style-class" (click)="loadTreatments()">Show Treatments</ion-button>
