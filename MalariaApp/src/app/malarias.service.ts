@@ -10,6 +10,10 @@ export class MalariasService {
   GetLocations() {
     return this.http.get('http://localhost:30264/api/Locations')
   }
+
+  GetPrevention() {
+    return this.http.get('http://localhost:30264/api/Preventions')
+
     GetDisease() {
       return this.http.get('http://localhost:30264/api/Deseases')
     }
@@ -24,6 +28,7 @@ export class MalariasService {
   }
   GetSymptoms() {
     return this.http.get('http://localhost:30264/api/Symptoms')
+
   }
 
 }
