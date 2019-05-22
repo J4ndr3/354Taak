@@ -17,4 +17,8 @@ export class MalariasService {
     }
   
   }
+  GetSymptoms() {
+    return this.http.get('http://localhost:30264/api/Symptoms')
+  }
+
 }
