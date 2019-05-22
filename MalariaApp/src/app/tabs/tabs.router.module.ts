@@ -35,6 +35,19 @@ const routes: Routes = [
         ]
       },
       {
+        // Die path na die nuwe page toe 
+                path: 'tab4',
+                children: [
+                  {
+                    path: '',
+                    // maak die page oop as hy geroep word 
+            loadChildren: '../tab4/tab4.module#Tab4PageModule'
+          }
+        ]
+      },
+
+        
+      {
         path: 'tab5',
         children: [
           {
