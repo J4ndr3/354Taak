@@ -10,8 +10,11 @@ export class Tab3Page {
 
   constructor(public data:MalariasService) {}
   causes;
+  //This action loads when the page is loaded
   ngAfterContentInit(): void{
+    // Here the data will be colected from the api
     this.data.GetCauses().subscribe(res=>{
+      //The result will be places into causes
       this.causes=res;
     })
   }

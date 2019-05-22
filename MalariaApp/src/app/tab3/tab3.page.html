@@ -3,6 +3,7 @@
     <ion-title>
       Causes
     </ion-title>
+    <!-- add the image and changes style -->
     <ion-img src="/assets/mozzi.png" style="width:50px;float:right"></ion-img>
   </ion-toolbar>
 </ion-header>
@@ -10,8 +11,10 @@
 <ion-content>
   <ion-header style="color:red; font-size:18px ">Description</ion-header>
   <ion-list>
+    <!-- for each cause in causes it adds a new item to the list -->
     <ion-item *ngFor="let des of causes">
       <ion-text text-wrap>
+        <!-- it interpolates the value into the text element -->
         {{des.Cause_Desc}}
       </ion-text>
     </ion-item>
