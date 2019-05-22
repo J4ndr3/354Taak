@@ -4,6 +4,10 @@
     <th>ID</th>
     <th>Location Name</th>
     <th>Severity</th>
+    <th>Severity Level</th>
+    <th>Latitude</th>
+    <th>Longitude </th>
+    <th>Radius</th>
     <th>Remove</th>
     <th>Edit</th>
   </tr>
@@ -11,8 +15,12 @@
     <td>{{loc.Loc_ID}}</td>
     <td>{{loc.Loc_Name}}</td>
     <td>{{loc.Loc_Severity}}</td>
+    <td>{{loc.sev_Lvl}}</td>
+    <td>{{loc.Lat}}</td>
+    <td>{{loc.Lng}}</td>
+    <td>{{loc.Raduis}}</td>
     <td><button (click)="removeLocation(loc.Loc_ID)"  class="cta">Remove</button></td>
-    <td><button (click)="edit(loc.Loc_ID,loc.Loc_Name,loc.Loc_Severity)"  class="cta">Edit</button></td>
+    <td><button (click)="edit(loc.Loc_ID,loc.Loc_Name,loc.Loc_Severity,loc.sev_Lvl,loc.Lat,loc.Lng,loc.Raduis)"  class="cta">Edit</button></td>
   </tr>
 </table>
 <button (click)="addLocation1()" *ngIf="addAct" class="cta">Click to add new Location</button>
@@ -33,6 +41,22 @@
       Severity:
       <input type="text" formControlName="Loc_Severity" maxlength="500">
     </label>
+    <label>
+      Severity Level:
+      <input type="text" formControlName="S_Lvl" maxlength="50">
+    </label>
+    <label>
+      Latitude:
+      <input type="text" formControlName="Lat" maxlength="500">
+    </label>
+    <label>
+      Longitude:
+      <input type="text" formControlName="Lng" maxlength="50">
+    </label>
+    <label>
+      Radius:
+      <input type="text" formControlName="Rad" maxlength="500">
+    </label>
   <br>
   <br>
     <input type="submit" value="Update Item" class="cta" >
@@ -51,6 +75,22 @@
     <label>
       Location Severity:
       <input type="text" formControlName="Loc_Severity" maxlength="500">
+    </label>
+    <label>
+      Severity Level:
+      <input type="text" formControlName="S_Lvl" maxlength="50">
+    </label>
+    <label>
+      Latitude:
+      <input type="text" formControlName="Lat" maxlength="500">
+    </label>
+    <label>
+      Longitude:
+      <input type="text" formControlName="Lng" maxlength="50">
+    </label>
+    <label>
+      Radius:
+      <input type="text" formControlName="Rad" maxlength="500">
     </label>
   <br>
   <br>

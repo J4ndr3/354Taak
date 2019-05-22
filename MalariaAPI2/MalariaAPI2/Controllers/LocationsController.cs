@@ -31,6 +31,10 @@ namespace MalariaAPI2.Controllers
                 m.Loc_ID = c.Loc_ID;
                 m.Loc_Name = c.Loc_Name;
                 m.Loc_Severity = c.Loc_Severity;
+                m.sev_Lvl = c.Sev_Lvl;
+                m.Lat = c.Lat;
+                m.Lng = c.Lng;
+                m.Raduis = c.Raduis;
                 toReturn.Add(m);
             }
             return toReturn;

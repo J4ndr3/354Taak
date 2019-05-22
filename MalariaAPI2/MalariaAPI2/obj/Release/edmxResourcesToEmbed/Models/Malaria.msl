@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Malaria_DBModelStoreContainer" CdmEntityContainer="Malaria_DBEntities">
+    <EntitySetMapping Name="Causes">
+      <EntityTypeMapping TypeName="Malaria_DBModel.Caus">
+        <MappingFragment StoreEntitySet="Causes">
+          <ScalarProperty Name="Cause_ID" ColumnName="Cause_ID" />
+          <ScalarProperty Name="Cause_Desc" ColumnName="Cause_Desc" />
+          <ScalarProperty Name="Des_ID" ColumnName="Des_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Deseases">
+      <EntityTypeMapping TypeName="Malaria_DBModel.Desease">
+        <MappingFragment StoreEntitySet="Desease">
+          <ScalarProperty Name="Des_ID" ColumnName="Des_ID" />
+          <ScalarProperty Name="Des_Desc" ColumnName="Des_Desc" />
+          <ScalarProperty Name="Des_Name" ColumnName="Des_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Locations">
+      <EntityTypeMapping TypeName="Malaria_DBModel.Location">
+        <MappingFragment StoreEntitySet="Location">
+          <ScalarProperty Name="Loc_ID" ColumnName="Loc_ID" />
+          <ScalarProperty Name="Loc_Severity" ColumnName="Loc_Severity" />
+          <ScalarProperty Name="Loc_Name" ColumnName="Loc_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medical_Proffesionals">
+      <EntityTypeMapping TypeName="Malaria_DBModel.Medical_Proffesionals">
+        <MappingFragment StoreEntitySet="Medical_Proffesionals">
+          <ScalarProperty Name="GUIDExp" ColumnName="GUIDExp" />
+          <ScalarProperty Name="GUID" ColumnName="GUID" />
+          <ScalarProperty Name="MP_ID" ColumnName="MP_ID" />
+          <ScalarProperty Name="MP_Name" ColumnName="MP_Name" />
+          <ScalarProperty Name="MP_Surname" ColumnName="MP_Surname" />
+          <ScalarProperty Name="MP_Email" ColumnName="MP_Email" />
+          <ScalarProperty Name="MP_Password" ColumnName="MP_Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notifications">
+      <EntityTypeMapping TypeName="Malaria_DBModel.Notification">
+        <MappingFragment StoreEntitySet="Notifications">
+          <ScalarProperty Name="Note_ID" ColumnName="Note_ID" />
+          <ScalarProperty Name="Note_Desc" ColumnName="Note_Desc" />
+          <ScalarProperty Name="Note_Date" ColumnName="Note_Date" />
+          <ScalarProperty Name="MP_ID" ColumnName="MP_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Preventions">
+      <EntityTypeMapping TypeName="Malaria_DBModel.Prevention">
+        <MappingFragment StoreEntitySet="Prevention">
+          <ScalarProperty Name="Prev_ID" ColumnName="Prev_ID" />
+          <ScalarProperty Name="Prev_Desc" ColumnName="Prev_Desc" />
+          <ScalarProperty Name="Prev_Type" ColumnName="Prev_Type" />
+          <ScalarProperty Name="Des_ID" ColumnName="Des_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Risk_Period">
+      <EntityTypeMapping TypeName="Malaria_DBModel.Risk_Period">
+        <MappingFragment StoreEntitySet="Risk_Period">
+          <ScalarProperty Name="RiskP_ID" ColumnName="RiskP_ID" />
+          <ScalarProperty Name="RiskP_Desc" ColumnName="RiskP_Desc" />
+          <ScalarProperty Name="RiskP_Type" ColumnName="RiskP_Type" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Symptoms">
+      <EntityTypeMapping TypeName="Malaria_DBModel.Symptom">
+        <MappingFragment StoreEntitySet="Symptoms">
+          <ScalarProperty Name="Symp_ID" ColumnName="Symp_ID" />
+          <ScalarProperty Name="Symp_Desc" ColumnName="Symp_Desc" />
+          <ScalarProperty Name="Symp_Type" ColumnName="Symp_Type" />
+          <ScalarProperty Name="Symp_Duration" ColumnName="Symp_Duration" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Treatments">
+      <EntityTypeMapping TypeName="Malaria_DBModel.Treatment">
+        <MappingFragment StoreEntitySet="Treatment">
+          <ScalarProperty Name="Treat_ID" ColumnName="Treat_ID" />
+          <ScalarProperty Name="Treat_Desc" ColumnName="Treat_Desc" />
+          <ScalarProperty Name="Treat_Type" ColumnName="Treat_Type" />
+          <ScalarProperty Name="Des_ID" ColumnName="Des_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Loc_Des">
+      <EntityTypeMapping TypeName="Malaria_DBModel.Loc_Des">
+        <MappingFragment StoreEntitySet="Loc_Des">
+          <ScalarProperty Name="Des_ID" ColumnName="Des_ID" />
+          <ScalarProperty Name="Loc_ID" ColumnName="Loc_ID" />
+          <ScalarProperty Name="Loc_Des_ID" ColumnName="Loc_Des_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RP_Des">
+      <EntityTypeMapping TypeName="Malaria_DBModel.RP_Des">
+        <MappingFragment StoreEntitySet="RP_Des">
+          <ScalarProperty Name="Des_ID" ColumnName="Des_ID" />
+          <ScalarProperty Name="RiskP_ID" ColumnName="RiskP_ID" />
+          <ScalarProperty Name="RP_Des_ID" ColumnName="RP_Des_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Symp_Des">
+      <EntityTypeMapping TypeName="Malaria_DBModel.Symp_Des">
+        <MappingFragment StoreEntitySet="Symp_Des">
+          <ScalarProperty Name="Des_ID" ColumnName="Des_ID" />
+          <ScalarProperty Name="Symp_ID" ColumnName="Symp_ID" />
+          <ScalarProperty Name="Symp_Des_ID" ColumnName="Symp_Des_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

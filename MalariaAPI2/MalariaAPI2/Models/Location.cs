@@ -23,6 +23,10 @@ namespace MalariaAPI2.Models
         public int Loc_ID { get; set; }
         public string Loc_Severity { get; set; }
         public string Loc_Name { get; set; }
+        public string Sev_Lvl { get; set; }
+        public Nullable<decimal> Lat { get; set; }
+        public Nullable<decimal> Lng { get; set; }
+        public Nullable<int> Raduis { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Loc_Des> Loc_Des { get; set; }

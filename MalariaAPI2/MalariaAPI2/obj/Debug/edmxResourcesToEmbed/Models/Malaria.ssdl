@@ -31,6 +31,10 @@
     <Property Name="Loc_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Loc_Severity" Type="nvarchar" MaxLength="500" Nullable="false" />
     <Property Name="Loc_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Sev_Lvl" Type="varchar" MaxLength="10" />
+    <Property Name="Lat" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="Lng" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="Raduis" Type="int" />
   </EntityType>
   <EntityType Name="Medical_Proffesionals">
     <Key>

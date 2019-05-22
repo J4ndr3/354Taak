@@ -1,0 +1,7 @@
+{
+  "name": "MalariaApp",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

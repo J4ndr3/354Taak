@@ -31,6 +31,10 @@
     <Property Name="Loc_Severity" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Loc_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Loc_Des" Relationship="Self.FK__Loc_Des__Loc_ID__25869641" FromRole="Location" ToRole="Loc_Des" />
+    <Property Name="Sev_Lvl" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="Lat" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Lng" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Raduis" Type="Int32" />
   </EntityType>
   <EntityType Name="Medical_Proffesionals">
     <Key>

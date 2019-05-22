@@ -181,6 +181,6 @@ C:\Users\jandr\Desktop\Git\Taak\354Taak\MalariaAPI2\MalariaAPI2\bin\Microsoft.Ow
 C:\Users\jandr\Desktop\Git\Taak\354Taak\MalariaAPI2\MalariaAPI2\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\jandr\Desktop\Git\Taak\354Taak\MalariaAPI2\MalariaAPI2\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
 C:\Users\jandr\Desktop\Git\Taak\354Taak\MalariaAPI2\MalariaAPI2\bin\System.Web.Http.Owin.xml
-C:\Users\jandr\Desktop\Git\Taak\354Taak\MalariaAPI2\MalariaAPI2\obj\Debug\MalariaAPI2.csprojResolveAssemblyReference.cache
 C:\Users\jandr\Desktop\Git\Taak\354Taak\MalariaAPI2\MalariaAPI2\obj\Debug\MalariaAPI2.dll
 C:\Users\jandr\Desktop\Git\Taak\354Taak\MalariaAPI2\MalariaAPI2\obj\Debug\MalariaAPI2.pdb
+C:\Users\jandr\Desktop\Git\Taak\354Taak\MalariaAPI2\MalariaAPI2\obj\Debug\MalariaAPI2.csprojResolveAssemblyReference.cache

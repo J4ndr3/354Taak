@@ -36,6 +36,10 @@
           <Property Name="Loc_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Loc_Severity" Type="nvarchar" MaxLength="500" Nullable="false" />
           <Property Name="Loc_Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sev_Lvl" Type="varchar" MaxLength="10" />
+          <Property Name="Lat" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="Lng" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="Raduis" Type="int" />
         </EntityType>
         <EntityType Name="Medical_Proffesionals">
           <Key>
@@ -318,6 +322,10 @@
           <Property Name="Loc_Severity" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Loc_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Loc_Des" Relationship="Self.FK__Loc_Des__Loc_ID__25869641" FromRole="Location" ToRole="Loc_Des" />
+          <Property Name="Sev_Lvl" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Lat" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Lng" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Raduis" Type="Int32" />
         </EntityType>
         <EntityType Name="Medical_Proffesionals">
           <Key>
@@ -612,6 +620,10 @@
           <EntitySetMapping Name="Locations">
             <EntityTypeMapping TypeName="Malaria_DBModel.Location">
               <MappingFragment StoreEntitySet="Location">
+                <ScalarProperty Name="Raduis" ColumnName="Raduis" />
+                <ScalarProperty Name="Lng" ColumnName="Lng" />
+                <ScalarProperty Name="Lat" ColumnName="Lat" />
+                <ScalarProperty Name="Sev_Lvl" ColumnName="Sev_Lvl" />
                 <ScalarProperty Name="Loc_ID" ColumnName="Loc_ID" />
                 <ScalarProperty Name="Loc_Severity" ColumnName="Loc_Severity" />
                 <ScalarProperty Name="Loc_Name" ColumnName="Loc_Name" />
