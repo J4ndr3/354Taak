@@ -1,6 +1,6 @@
 <ion-header>
-  <ion-toolbar style="margin:auto; color:red">
-    <ion-title style="float:left;size: 50px">
+  <ion-toolbar style="color:red">
+    <ion-title style="font-size: 17px">
       Mosquito Suck
     </ion-title>
 
@@ -10,6 +10,13 @@
 
 
 <ion-content>
+    <ion-header style="color: red; margin: auto; text-align: center">
+        <b>Risk Periods</b></ion-header>
+      <ion-list>
+          <ion-item *ngFor="let RP of RiskPer">
+              <ion-text  text-wrap><b>{{RP.RiskP_Type}}</b> <br>{{RP.RiskP_Desc}} </ion-text>
+            </ion-item>
+      </ion-list>
     <ion-card class="welcome-card" *ngFor="let Dis of Diseases">
       <ion-card-header>
         <ion-card-title>Information about {{Dis.Des_Name}}</ion-card-title>
@@ -18,12 +25,5 @@
         <p>{{Dis.Des_Desc}}</p>
       </ion-card-content>
     </ion-card>
-    <ion-header style="color: red; margin: auto; text-align: center">
-      <b>Risk Periods</b></ion-header>
-    <ion-list>
-        <ion-item *ngFor="let RP of RiskPer">
-            <ion-text  text-wrap><b>{{RP.RiskP_Type}}</b> <br>{{RP.RiskP_Desc}} </ion-text>
-          </ion-item>
-    </ion-list>
   </ion-content>
   

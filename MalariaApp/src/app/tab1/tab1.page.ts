@@ -22,12 +22,11 @@ ngAfterContentInit(): void {
     this.Diseases = res;
     this.data.GetRiskPeriod().subscribe(res=>{
       this.RiskPer = res;
-
     })
-    this.data.getNote().subscribe(res => {
+    this.data.GetNote().subscribe(res => {
       this.Notif = res;
       this.lastNote = Object.keys(res).length;
-      
+
     })
   });
 }
