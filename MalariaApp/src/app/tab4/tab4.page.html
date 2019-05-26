@@ -16,7 +16,7 @@
       <!-- Ion-list maak n nuwe list  -->
       <ion-list>
         <!-- Item is n nuwe lyntjie in die list.  Die ngFor maak n nuwe var met let genamed prev wat van die tipe Preventions is wat ons in die ts file declare het -->
-        <ion-item *ngFor="let prev of Preventions">
+        <ion-item lines="full" *ngFor="let prev of Preventions">
           <!-- Met Interpolation lees ons die waardes van die Prevention Type en Prevention Description in die Items in as text.  Prev_Type en Prev_Desc is die name van die kolomme in die databasis  -->
           <ion-text text-wrap><b>{{prev.Prev_Type}}</b> <br> {{prev.Prev_Desc}} </ion-text>
         </ion-item>

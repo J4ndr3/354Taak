@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {MalariasService} from '../malarias.service';
 import { NavController} from '@ionic/angular';
 import {Router} from '@angular/router'
+import {AlertController} from '@ionic/angular'
 
 @Component({
   selector: 'app-tab2',
@@ -9,10 +10,14 @@ import {Router} from '@angular/router'
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-  constructor(public data: MalariasService,private navController: NavController, private router: Router) {}
+  constructor(public data: MalariasService,public alertcontroller:AlertController, private navController: NavController, private router: Router) {}
   Symptoms;
   Type=[];
+  Risk;
   ngAfterContentInit(): void {
+    this.data.GetRiskPeriod().subscribe(res=> {
+      this.Risk=res;
+    })
     this.data.GetSymptoms().subscribe(res => {
     this.Symptoms = res;
 for (var i =0; i<= Object.keys(res).length -1 ;++i)
@@ -29,4 +34,14 @@ for (var i =0; i<= Object.keys(res).length -1 ;++i)
 }
 loadTreatments(){
   this.navController.navigateRoot('/tabs/tab6')}
-}
+
+  async PresentRisk(){
+    const alert = await this.alertcontroller.create({
+      header: 'Risk Periods',
+      message: '<p style="font-size:12px"><b>'+this.Risk[0].RiskP_Type +'</b><br>'+this.Risk[0].RiskP_Desc+'<b><br><br>'+this.Risk[1].RiskP_Type +'</b><br>'+this.Risk[1].RiskP_Desc+'</p>',
+      buttons:['OK']
+    });
+  
+    await alert.present();
+  }
+  }
