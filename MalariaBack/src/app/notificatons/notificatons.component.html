@@ -18,16 +18,16 @@
     <form [formGroup]="AddForm" (ngSubmit)="addCause()">
       <label>
        Description:
-        <input type="text" formControlName="Note_Desc">
+        <textarea formControlName="Note_Desc" style="width: 97.5%"></textarea>
       </label>
       <label>
           Date:
-           <input type="date" formControlName="Note_Date">
+           <input type="date" formControlName="Note_Date" style="width: 150px">
          </label>
       <label>
         Medical professional:
       </label>
-      <select formControlName="MP_Name" [(value)]="Selection">
+      <select formControlName="MP_Name" [(value)]="Selection" class="cts">
         <option value="" disabled>Choose the Medical Professional</option>
         <option *ngFor="let opt of options" [(value)]="opt.MP_ID">{{opt.MP_Name}}</option>
      </select>

@@ -53,4 +53,9 @@ addAct=true;
       this.addAct=true;
       this.addistrue=false;
   }
+  cancelAC(){
+    this.addAct=true;
+    this.addistrue =false;
+    this.AddForm.reset();
+  }
 }

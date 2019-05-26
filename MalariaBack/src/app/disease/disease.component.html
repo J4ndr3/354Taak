@@ -23,15 +23,15 @@
   <form [formGroup]="EditForm" (ngSubmit)="updateDisease()">
     <label>
       Disease ID:
-      <input type="text" formControlName="Des_ID" disabled>
+      <input type="text" formControlName="Des_ID" style="width: 150px" disabled>
     </label>
     <label>
       Disease Name:
-      <input type="text" formControlName="Des_Name" maxlength="50">
+      <input type="text" formControlName="Des_Name" maxlength="50" style="width: 150px">
     </label>
     <label>
         Disease Description:
-        <input type="text" formControlName="Des_Desc">
+        <textarea formControlName="Des_Desc" style="width: 98%"></textarea>
       </label>
   <br>
   <br>
@@ -46,11 +46,11 @@
   <form [formGroup]="AddForm" (ngSubmit)="addDisease()">
     <label>
         Disease Name:
-      <input type="text" formControlName="Des_Name">
+      <input type="text" formControlName="Des_Name" style="width: 150px">
     </label>
     <label>
         Disease Description:
-      <input type="text" formControlName="Des_Desc">
+      <textarea formControlName="Des_Desc" style="width: 97.5%"></textarea>
     </label>
   <br>
   <br>

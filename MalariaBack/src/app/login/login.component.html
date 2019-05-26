@@ -2,7 +2,7 @@
   <h1>Login as Medical Professional</h1>
   <label>
     Email:
-    <input type="text" formControlName="name">
+    <input type="text" formControlName="name" style="width: 180px">
     <div *ngIf="submitted && loginForm.controls.name.errors" class="error">
       <div *ngIf="messageForm.controls.name.errors.required">An UserID is required</div>
     </div>
@@ -10,7 +10,7 @@
 
   <label>
     Password:
-    <input type="password" formControlName="message">
+    <input type="password" formControlName="message" style="width: 180px">
     <div *ngIf="submitted && loginForm.controls.message.errors" class="error">
       <div *ngIf="messageForm.controls.message.errors.required">A Password is required</div>
     </div>

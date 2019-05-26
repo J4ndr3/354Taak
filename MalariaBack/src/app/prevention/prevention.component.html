@@ -25,20 +25,20 @@
   <form [formGroup]="EditForm" (ngSubmit)="updatePrevention()">
     <label>
       Prevention ID:
-      <input type="text" formControlName="Prev_ID" disabled>
+      <input type="text" formControlName="Prev_ID" disabled style="width: 150px">
     </label>
     <label>
       Prevention Description:
-      <input type="text" formControlName="Prev_Desc" required>
+      <textarea formControlName="Prev_Desc" required style="width: 97.5%"></textarea>
     </label>
     <label>
       Prevention Type:
-      <input type="text" formControlName="Prev_Type" maxlength="50">
+      <input type="text" formControlName="Prev_Type" maxlength="50" style="width: 150px">
     </label>
     <label>
       Disease Name:
     </label>
-    <select formControlName="Dis_Name" [(value)]="Selection">
+    <select formControlName="Dis_Name" [(value)]="Selection" class="cts">
       <option value="" disabled>Choose the Disease</option>
       <option *ngFor="let opt of options" [(value)]="opt.Des_ID">{{opt.Des_Name}}</option>
    </select>
@@ -55,16 +55,16 @@
   <form [formGroup]="AddForm" (ngSubmit)="addPrevention()">
     <label>
       Prevention Description:
-      <input type="text" formControlName="Prev_Desc" required>
+      <textarea formControlName="Prev_Desc" required style="width: 97.5%"></textarea>
     </label>
     <label>
       Prevention Type:
-      <input type="text" formControlName="Prev_Type" maxlength="50">
+      <input type="text" formControlName="Prev_Type" maxlength="50" style="width: 150px">
     </label>
     <label>
       Disease Name:
     </label>
-    <select formControlName="Dis_Name" [(value)]="Selection">
+    <select formControlName="Dis_Name" [(value)]="Selection" class="cts">
       <option value="" disabled>Choose the Disease</option>
       <option *ngFor="let opt of options" [(value)]="opt.Des_ID">{{opt.Des_Name}}</option>
    </select>

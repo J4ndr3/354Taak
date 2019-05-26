@@ -25,19 +25,19 @@
   <form [formGroup]="EditForm" (ngSubmit)="updateSymptom()">
     <label>
       Symptom ID:
-      <input type="text" formControlName="Symp_ID" disabled>
+      <input type="text" formControlName="Symp_ID" disabled style="width: 150px">
     </label>
     <label>
       Symptom Name:
-      <input type="text" formControlName="Symp_Desc">
+      <input type="text" formControlName="Symp_Desc" style="width: 150px">
     </label>
     <label>
       Symptom Type:
-      <input type="text" formControlName="Symp_Type">
+      <input type="text" formControlName="Symp_Type" style="width: 150px">
     </label>
     <label>
       Symptom Duration:
-      <input type="text" formControlName="Symp_Duration">
+      <input type="text" formControlName="Symp_Duration" style="width: 150px">
     </label>
   <br>
   <br>
@@ -52,15 +52,15 @@
   <form [formGroup]="AddForm" (ngSubmit)="addSymptom()">
     <label>
       Symptom Description:
-      <input type="text" formControlName="Symp_Desc">
+      <input type="text" formControlName="Symp_Desc" style="width: 150px">
     </label>
     <label>
       Symptom Type:
-      <input type="text" formControlName="Symp_Type" maxlength="50">
+      <input type="text" formControlName="Symp_Type" maxlength="50" style="width: 150px">
     </label>
     <label>
       Symptom Duration:
-      <input type="text" formControlName="Symp_Duration" maxlength="300">
+      <input type="text" formControlName="Symp_Duration" maxlength="300" style="width: 150px">
     </label>
   <br>
   <br>
@@ -95,14 +95,14 @@
     <label>
       Symptom Description:
     </label>
-    <select formControlName="Symp_Desc" [(value)]="SelectionLoc">
+    <select formControlName="Symp_Desc" [(value)]="SelectionLoc" class="cts">
       <option value="" disabled>Choose the Symptom</option>
       <option *ngFor="let opt of optionsl" [(value)]="opt.Symp_ID">{{opt.Symp_Desc}}</option>
    </select>
     <label>
       Disease Name:
     </label>
-    <select formControlName="Dis_Name" [(value)]="SelectionDes">
+    <select formControlName="Dis_Name" [(value)]="SelectionDes" class="cts">
       <option value="" disabled>Choose the Disease</option>
       <option *ngFor="let opt of optionsd" [(value)]="opt.Des_ID">{{opt.Des_Name}}</option>
    </select>
@@ -124,14 +124,14 @@
     <label>
       Symptom Description:
     </label>
-    <select formControlName="Symp_Desc" [(value)]="SelectionLoc">
+    <select formControlName="Symp_Desc" [(value)]="SelectionLoc" class="cts">
       <option value="" disabled>Choose the Symptom</option>
       <option *ngFor="let opt of optionsl" [(value)]="opt.Symp_ID">{{opt.Symp_Desc}}</option>
    </select>
     <label>
       Disease Name:
     </label>
-    <select formControlName="Dis_Name" [(value)]="SelectionDes">
+    <select formControlName="Dis_Name" [(value)]="SelectionDes" class="cts">
       <option value="" disabled>Choose the Disease</option>
       <option *ngFor="let opt of optionsd" [(value)]="opt.Des_ID">{{opt.Des_Name}}</option>
    </select>

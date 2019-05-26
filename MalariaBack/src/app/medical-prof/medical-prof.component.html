@@ -26,23 +26,23 @@
   <form [formGroup]="EditForm" (ngSubmit)="updateDisease()">
     <label>
       ID:
-      <input type="text" formControlName="MP_ID" disabled>
+      <input type="text" formControlName="MP_ID" disabled style="width: 180px">
     </label>
     <label>
       Name:
-      <input type="text" formControlName="MP_Name" required maxlength="50">
+      <input type="text" formControlName="MP_Name" required maxlength="50" style="width: 180px">
     </label>
     <label>
       Surname:
-      <input type="text" formControlName="MP_Surname" required maxlength="50">
+      <input type="text" formControlName="MP_Surname" required maxlength="50"style="width: 180px">
     </label>
     <label>
       Email:
-      <input type="text" formControlName="MP_Email" required maxlength="50">
+      <input type="text" formControlName="MP_Email" required maxlength="50"style="width: 180px">
     </label>
     <label>
       Password:
-      <input type="password" formControlName="MP_Password"required maxlength="20">
+      <input type="password" formControlName="MP_Password"required maxlength="20" style="width: 180px">
     </label>
     <br>
     <br>
@@ -57,19 +57,19 @@
   <form [formGroup]="AddForm" (ngSubmit)="addDisease()">
       <label>
           Name:
-          <input type="text" formControlName="MP_Name" required maxlength="50">
+          <input type="text" formControlName="MP_Name" required maxlength="50" style="width: 180px">
         </label>
         <label>
           Surname:
-          <input type="text" formControlName="MP_Surname" required maxlength="50">
+          <input type="text" formControlName="MP_Surname" required maxlength="50" style="width: 180px">
         </label>
         <label>
           Email:
-          <input type="text" formControlName="MP_Email" required maxlength="50">
+          <input type="text" formControlName="MP_Email" required maxlength="50" style="width: 180px">
         </label>
         <label>
           Password:
-          <input type="password" formControlName="MP_Password" required maxlength="20">
+          <input type="password" formControlName="MP_Password" required maxlength="20" style="width: 180px">
         </label>
     <br>
     <br>
