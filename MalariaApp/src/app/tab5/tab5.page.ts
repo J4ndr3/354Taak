@@ -27,7 +27,7 @@ col;
         zoom: 4
       }
     );
-    for (var i =0;i<=7;++i)
+    for (var i =0;i<=Object.keys(res).length-1;++i)
     {
       if (this.locations[i].sev_Lvl =="High")
       {

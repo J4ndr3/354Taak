@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar style="color:red">
+    <ion-title>
+      Treatment
+    </ion-title>
+    <ion-img src="/assets/mozzi.png" style="width:50px;float:right"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+   <!-- Creates a div for common and uncommon types -->
+  <div *ngFor="let tp of type">
+    <ion-header style="margin:auto; font-size: 20px; color:red">
+      <b>
+        {{tp}}
+      </b>
+    </ion-header>
+    <ion-list>
+      <!-- for each treat in treatment it adds a new item to the list -->
+      <div *ngFor="let treat of treatment">
+        <ion-item lines="full" *ngIf="treat.Treat_Type ==tp">
+          <ion-text text-wrap>
+            <!-- it interpolates the value into the text element -->
+            {{treat.Treat_Desc}}
+          </ion-text>
+        </ion-item>
+
+      </div>
+    </ion-list>
+
+  </div>
+</ion-content>

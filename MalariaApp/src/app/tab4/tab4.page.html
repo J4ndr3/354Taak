@@ -1,0 +1,26 @@
+<!-- Ion-header is n header element -->
+<ion-header>
+  <!-- Ion-toolbar is altyd bo aan die page as ditin n header is  -->
+  <ion-toolbar style="color:red">
+    <!-- Title is net die text wat ons wil display -->
+    <ion-title style="font-size: 20px">
+      Preventions
+    </ion-title>
+<!-- Ion-img is net n prentjie wat ons in die toolbar in die bo kant van die app wil insit -->
+    <ion-img src="/assets/mozzi.png" style="width:50px;float: right;"></ion-img>
+  </ion-toolbar>
+</ion-header>
+<!-- Content is net as ons iets in die page wil display in n “Container” -->
+<ion-content>
+    <div>
+      <!-- Ion-list maak n nuwe list  -->
+      <ion-list>
+        <!-- Item is n nuwe lyntjie in die list.  Die ngFor maak n nuwe var met let genamed prev wat van die tipe Preventions is wat ons in die ts file declare het -->
+        <ion-item lines="full" *ngFor="let prev of Preventions">
+          <!-- Met Interpolation lees ons die waardes van die Prevention Type en Prevention Description in die Items in as text.  Prev_Type en Prev_Desc is die name van die kolomme in die databasis  -->
+          <ion-text text-wrap><b>{{prev.Prev_Type}}</b> <br> {{prev.Prev_Desc}} </ion-text>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>
+  

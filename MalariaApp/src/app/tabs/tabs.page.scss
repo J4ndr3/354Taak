@@ -1,1 +1,16 @@
 
+.ios .tabs .tabbar, .md .tabs .tabbar{
+    color: rgb(156, 75, 125);
+    width: 50%;
+    }
+    ion-tabs {
+        widows: 100%;
+    padding: 0%}
+    ion-tab-button{
+        --padding-start: 0px;
+        --padding-end: 0px;
+        
+    }
+    .tab-item.tab-item-active, .tab-item.active, .tab-item.activated {
+        color: red;
+    }
