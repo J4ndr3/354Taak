@@ -13,11 +13,14 @@
         <br>
         <ion-list>
     <div *ngFor="let symp of Symptoms">
-              <ion-item *ngIf="symp.Symp_Type ==Type1">
+              <ion-item lines="full" *ngIf="symp.Symp_Type ==Type1">
                   <ion-text  text-wrap><b>{{symp.Symp_Desc}}</b> <br>Duration: {{symp.Symp_Duration}} </ion-text>
                 </ion-item>
           </div>
         </ion-list>
       </div>
 </ion-content>
-<ion-button expand="full" class="your-style-class" (click)="loadTreatments()">Show Treatments</ion-button>
+<ion-footer style="background-color:rgb(255,185,185)">
+<ion-button expand="50%" class="your-style-class" style="float:left"  (click)="loadTreatments()">Show Treatments</ion-button>
+<ion-button expand="50%" class="your-style-class" style="float:right" (click)="PresentRisk()">Risk Periods</ion-button>
+</ion-footer>
