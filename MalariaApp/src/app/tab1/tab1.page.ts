@@ -20,15 +20,13 @@ lastNote; //last notification
 ngAfterContentInit(): void {
   this.data.GetDisease().subscribe(res => {
     this.Diseases = res;
-    this.data.GetRiskPeriod().subscribe(res=>{
-      this.RiskPer = res;
-    })
-    this.data.GetNote().subscribe(res => {
-      this.Notif = res;
-      this.lastNote = Object.keys(res).length;
-
-    })
+    
   });
+  this.data.GetNote().subscribe(res => {
+    this.Notif = res;
+    this.lastNote = Object.keys(res).length;
+
+  })
 }
 ionViewDidEnter (){
   this.presentAlert()
@@ -36,7 +34,7 @@ ionViewDidEnter (){
 async presentAlert(){
   const alert = await this.alertcontroller.create({
     header: 'Latest news',
-    subHeader:'dDate of News' +  this.Notif[this.lastNote-1].Note_Date,
+    subHeader:'Date of News' +  this.Notif[this.lastNote-1].Note_Date,
     message: this.Notif[this.lastNote-1].Note_Desc +"("+ this.Notif[this.lastNote-1].MP_Name+")",
     buttons:['OK']
   });

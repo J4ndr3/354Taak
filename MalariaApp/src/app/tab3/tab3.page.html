@@ -12,7 +12,7 @@
   <ion-header style="color:red; font-size:18px ">Description</ion-header>
   <ion-list>
     <!-- for each cause in causes it adds a new item to the list -->
-    <ion-item *ngFor="let des of causes">
+    <ion-item lines="full" *ngFor="let des of causes">
       <ion-text text-wrap>
         <!-- it interpolates the value into the text element -->
         {{des.Cause_Desc}}
