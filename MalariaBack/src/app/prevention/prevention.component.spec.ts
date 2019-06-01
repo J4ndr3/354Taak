@@ -1,6 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PreventionComponent } from './prevention.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('PreventionComponent', () => {
   let component: PreventionComponent;
@@ -8,6 +11,7 @@ describe('PreventionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ReactiveFormsModule,FormsModule,HttpClientModule,RouterTestingModule],
       declarations: [ PreventionComponent ]
     })
     .compileComponents();

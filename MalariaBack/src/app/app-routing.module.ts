@@ -11,8 +11,8 @@ import { LocationComponent } from './location/location.component';
 import { LoginComponent } from './login/login.component';
 import { MedicalProfComponent } from './medical-prof/medical-prof.component';
 import { NotificatonsComponent } from './notificatons/notificatons.component';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http'; 
 const routes: Routes = [  {path:'Home',component:HomeComponent},
 { path: '', component: LoginComponent },
 { path: 'Causes', component: CausesComponent },
@@ -27,7 +27,8 @@ const routes: Routes = [  {path:'Home',component:HomeComponent},
 
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes),FormsModule, ReactiveFormsModule,HttpClientModule],
+  exports: [RouterModule, FormsModule,
+    ReactiveFormsModule]
 })
 export class AppRoutingModule { }
