@@ -33,7 +33,7 @@ for (var i =0; i<= Object.keys(res).length -1 ;++i)
   });
 }
 loadTreatments(){
-  this.navController.navigateRoot('/tabs/tab6')}
+  this.navController.navigateRoot('/geolocation')}
 
   async PresentRisk(){
     const alert = await this.alertcontroller.create({

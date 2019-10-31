@@ -5,7 +5,8 @@ const routes: Routes = [
   { path: '', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'tab4', loadChildren: './tab4/tab4.module#Tab4PageModule' },
   { path: 'tab5', loadChildren: './tab5/tab5.module#Tab5PageModule' },
-  { path: 'tab6', loadChildren: './tab6/tab6.module#Tab6PageModule' }
+  { path: 'tab6', loadChildren: './tab6/tab6.module#Tab6PageModule' },  { path: 'geolocation', loadChildren: './geolocation/geolocation.module#GeolocationPageModule' }
+
 
 
 ];
